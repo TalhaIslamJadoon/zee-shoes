@@ -1,0 +1,1675 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Zee Shoes — Mandian, Abbottabad | Demo Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#f4f5fa; --bg2:#eceef6; --surface:#ffffff; --surface2:#eef0f8;
+  --ink:#131828; --ink2:#3d4358; --muted:#6b7288;
+  --line:rgba(19,24,40,.09);
+  --blue:#2563eb; --cyan:#06b6d4; --violet:#7c3aed;
+  --grad:linear-gradient(92deg,#2563eb 0%,#06b6d4 48%,#7c3aed 100%);
+  --grad-soft:linear-gradient(120deg,rgba(37,99,235,.12),rgba(6,182,212,.12),rgba(124,58,237,.12));
+  --frost:rgba(255,255,255,.68);
+  --shadow:0 18px 44px rgba(31,38,80,.13);
+  --shadow-sm:0 8px 22px rgba(31,38,80,.10);
+  --radius:20px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0d1020; --bg2:#11142a; --surface:#171b31; --surface2:#1d2140;
+    --ink:#eef0fa; --ink2:#c3c8de; --muted:#8f96b3;
+    --line:rgba(238,240,250,.12);
+    --frost:rgba(23,27,49,.72);
+    --shadow:0 18px 44px rgba(0,0,0,.45);
+    --shadow-sm:0 8px 22px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:'Sora',sans-serif;margin:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;min-height:44px}
+input,select,textarea{font-family:inherit;min-height:44px;font-size:1rem}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border:none;border-radius:999px;padding:.8rem 1.6rem;font-weight:800;font-size:.98rem;text-decoration:none;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;min-height:48px}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 12px 28px rgba(37,99,235,.35)}
+.btn-grad::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.4s ease-in-out infinite}
+@keyframes shine{0%,55%{left:-70%}90%,100%{left:130%}}
+.btn-grad:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 18px 36px rgba(124,58,237,.38)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:rgba(37,99,235,.4)}
+.chip{display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.42rem .95rem;font-weight:700;font-size:.85rem;color:var(--ink2)}
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:60;background:var(--frost);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:1rem;padding:.65rem 0}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:'Sora';font-weight:800;font-size:1.22rem;letter-spacing:.01em}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:1.05rem;box-shadow:0 8px 18px rgba(37,99,235,.35)}
+.logo small{display:block;font-family:'Manrope';font-weight:700;font-size:.62rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.nav-links{display:flex;gap:.25rem;margin-left:auto;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.92rem;color:var(--ink2);padding:.55rem .8rem;border-radius:999px;min-height:40px;display:inline-flex;align-items:center}
+.nav-links a:hover{color:var(--blue);background:var(--surface2)}
+.admin-btn{background:var(--ink);color:var(--bg);border:none;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;font-size:.9rem}
+.admin-btn:hover{background:var(--blue);color:#fff}
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:64px 0 30px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% -10% auto;height:560px;background:radial-gradient(520px 300px at 18% 30%,rgba(37,99,235,.20),transparent 65%),radial-gradient(520px 320px at 82% 20%,rgba(124,58,237,.18),transparent 65%),radial-gradient(420px 260px at 55% 80%,rgba(6,182,212,.16),transparent 65%);animation:heroGlow 9s ease-in-out infinite alternate;pointer-events:none}
+@keyframes heroGlow{from{transform:translateY(0) scale(1)}to{transform:translateY(22px) scale(1.05)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4.1rem);line-height:1.04;font-weight:800;letter-spacing:-.01em}
+.hero p.lead{font-size:1.13rem;color:var(--ink2);line-height:1.65;margin:20px 0 26px;max-width:34rem}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:1.6rem;margin-top:34px;flex-wrap:wrap}
+.hero-stats div b{font-family:'Sora';font-size:1.35rem;display:block}
+.hero-stats div span{font-size:.8rem;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.hero-visual{position:relative}
+.hero-card{border-radius:28px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(1.5deg);animation:floaty 6s ease-in-out infinite}
+.hero-card img{width:100%;height:440px;object-fit:cover}
+@keyframes floaty{0%,100%{transform:rotate(1.5deg) translateY(0)}50%{transform:rotate(1.5deg) translateY(-12px)}}
+.hero-badge{position:absolute;background:var(--frost);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:16px;padding:.65rem .95rem;box-shadow:var(--shadow-sm);font-weight:800;font-size:.86rem;display:flex;gap:.5rem;align-items:center;animation:floaty 5s ease-in-out infinite}
+.hb1{top:22px;left:-14px}.hb2{bottom:30px;right:-8px;animation-delay:1.2s}
+.demo-tag{display:inline-block;background:#fff7e6;color:#92600a;border:1px solid #f0d48a;font-weight:800;font-size:.75rem;border-radius:999px;padding:.3rem .8rem;letter-spacing:.06em;text-transform:uppercase}
+@media (prefers-color-scheme: dark){.demo-tag{background:#2c2410;color:#f5c86b;border-color:#5c4a1c}}
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--ink);color:var(--bg);overflow:hidden;padding:.72rem 0;transform:rotate(-.6deg) scale(1.02);margin:26px 0 6px}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marq 26s linear infinite;font-family:'Sora';font-weight:700;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.marquee-track span{padding:0 1.4rem}
+.marquee-track i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes marq{to{transform:translateX(-50%)}}
+/* ---------- SECTIONS ---------- */
+section{padding:64px 0}
+.sec-head{max-width:640px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.12;margin:.55rem 0 .6rem}
+.sec-head p{color:var(--ink2);line-height:1.6;margin:0}
+.kicker{font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+/* offers */
+.offer-strip{display:grid;gap:14px}
+.offer-banner{border-radius:var(--radius);padding:1.15rem 1.4rem;background:var(--grad);color:#fff;display:flex;align-items:center;gap:1rem;box-shadow:0 14px 30px rgba(37,99,235,.28);animation:offerPulse 4.5s ease-in-out infinite}
+@keyframes offerPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.08)}}
+.offer-banner b{font-family:'Sora';font-size:1.05rem}
+.offer-banner span{opacity:.92;font-weight:600}
+.offer-banner .tag{margin-left:auto;background:rgba(255,255,255,.22);border-radius:999px;padding:.3rem .8rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+/* categories */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.cat-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease;text-align:left;width:100%}
+.cat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.cat-ico{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:1.5rem;color:#fff;margin-bottom:.8rem}
+.cat-card h3{font-size:1.05rem;margin-bottom:.3rem}
+.cat-card p{margin:0;color:var(--muted);font-size:.9rem;font-weight:600}
+/* catalogue */
+.filters{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:26px}
+.filter-btn{border:1.5px solid var(--line);background:var(--surface);color:var(--ink2);border-radius:999px;padding:.55rem 1.15rem;font-weight:800;font-size:.9rem;transition:all .25s}
+.filter-btn.active{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 10px 22px rgba(37,99,235,.3)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:20px}
+.prod-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column}
+.prod-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.prod-card .imgbox{overflow:hidden;aspect-ratio:4/3;background:var(--surface2)}
+.prod-card .imgbox img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.prod-card:hover .imgbox img{transform:scale(1.08)}
+.prod-body{padding:1rem 1.1rem 1.15rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.prod-cat{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.prod-body h3{font-size:1.02rem}
+.prod-meta{font-size:.84rem;color:var(--muted);font-weight:600}
+.prod-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.5rem}
+.price{font-family:'Sora';font-weight:800;font-size:1.12rem}
+.price small{display:block;font-family:'Manrope';font-weight:700;font-size:.68rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.enq-btn{background:var(--grad);color:#fff;border:none;border-radius:999px;padding:.55rem 1.05rem;font-weight:800;font-size:.86rem;box-shadow:0 8px 18px rgba(37,99,235,.3);transition:transform .2s}
+.enq-btn:hover{transform:scale(1.05)}
+.dots{display:inline-flex;gap:5px}
+.dots i{width:13px;height:13px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line);display:inline-block}
+/* ---------- TRY-ON STUDIO ---------- */
+.studio{background:linear-gradient(180deg,var(--bg2),var(--bg));border-radius:34px;padding:30px 18px 22px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.studio-word{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);font-family:'Sora';font-weight:800;font-size:clamp(6rem,22vw,15rem);letter-spacing:.04em;color:var(--ink);opacity:.055;pointer-events:none;user-select:none;line-height:1;white-space:nowrap}
+.studio-tabs{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:5}
+.stab{background:var(--frost);backdrop-filter:blur(12px);border:1.5px solid var(--line);border-radius:999px;padding:.6rem 1.15rem;font-weight:800;font-size:.9rem;color:var(--ink2);transition:all .25s;display:inline-flex;gap:.45rem;align-items:center}
+.stab.active{color:#fff;border-color:transparent;box-shadow:0 10px 24px rgba(31,38,80,.25)}
+.stage{position:relative;height:480px;margin-top:8px}
+.stage-fade{transition:opacity .38s ease,transform .38s ease}
+.stage.switching .stage-fade{opacity:0;transform:scale(.985)}
+.model-wrap{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:216px;z-index:8;text-align:center;pointer-events:none}
+.model-card{border-radius:22px;overflow:hidden;box-shadow:0 24px 48px rgba(31,38,80,.25);border:3px solid var(--surface)}
+.model-card img{width:100%;height:308px;object-fit:cover;object-position:top}
+.model-reflect{width:100%;height:52px;overflow:hidden;opacity:.28;transform:scaleY(-1);mask-image:linear-gradient(to top,rgba(0,0,0,.7),transparent);-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.7),transparent)}
+.model-reflect img{width:100%;height:308px;object-fit:cover;object-position:top}
+.floor{position:absolute;left:50%;bottom:96px;transform:translateX(-50%);width:300px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(19,24,40,.28),transparent);filter:blur(4px);z-index:1;pointer-events:none}
+.worn{position:absolute;left:50%;bottom:104px;transform:translateX(-50%);z-index:9;background:var(--frost);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:16px;padding:.45rem .7rem .45rem .45rem;display:flex;align-items:center;gap:.6rem;box-shadow:var(--shadow-sm);max-width:92%;pointer-events:none}
+.worn img{width:56px;height:44px;object-fit:cover;border-radius:11px}
+.worn b{font-size:.82rem;display:block;line-height:1.25}
+.worn span{font-size:.72rem;color:var(--muted);font-weight:700}
+.orbit{position:absolute;inset:0;z-index:6}
+.ocard{position:absolute;top:44%;left:50%;width:158px;background:var(--frost);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;padding:.55rem;box-shadow:var(--shadow-sm);cursor:pointer;text-align:left;transition:box-shadow .25s}
+.ocard img{width:100%;height:86px;object-fit:cover;border-radius:12px}
+.ocard b{display:block;font-size:.8rem;margin:.45rem .15rem .1rem;line-height:1.3}
+.ocard span{font-size:.76rem;color:var(--blue);font-weight:800;margin-left:.15rem}
+.ocard .try{display:block;text-align:center;margin-top:.45rem;width:100%;border:none;border-radius:999px;background:var(--grad);color:#fff;font-weight:800;font-size:.76rem;padding:.42rem;min-height:44px}
+.ocard.sel{outline:2.5px solid var(--blue);box-shadow:0 16px 34px rgba(37,99,235,.3)}
+.tray{position:relative;z-index:10;margin:6px auto 0;max-width:640px;background:var(--frost);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:.5rem .6rem .5rem 1.1rem;display:flex;align-items:center;gap:.8rem;box-shadow:var(--shadow-sm);flex-wrap:wrap;justify-content:center}
+.tray img{width:52px;height:40px;object-fit:cover;border-radius:10px}
+.tray .tname{font-weight:800;font-size:.92rem;line-height:1.25}
+.tray .tprice{color:var(--blue);font-weight:800;font-size:.86rem}
+.swatch{width:44px;height:44px;border-radius:50%;border:2.5px solid var(--surface);box-shadow:0 0 0 1.5px var(--line), inset 0 0 0 9px var(--surface);cursor:pointer;padding:0;min-height:44px}
+.swatch.on{box-shadow:0 0 0 2.5px var(--blue), inset 0 0 0 9px var(--surface)}
+/* why / stats */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.why-grid img.main{border-radius:26px;height:380px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.1rem 1.2rem}
+.stat b{font-family:'Sora';font-size:1.9rem;display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-weight:700;color:var(--muted);font-size:.86rem}
+.why-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:.65rem}
+.why-list li{display:flex;gap:.6rem;font-weight:600;color:var(--ink2)}
+.why-list li::before{content:"✓";color:#fff;background:var(--grad);width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.72rem;flex:none;font-weight:800}
+/* visit */
+.visit-card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:2rem;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;box-shadow:var(--shadow-sm)}
+.visit-card h3{font-size:1.4rem;margin-bottom:.6rem}
+.visit-card p{color:var(--ink2);line-height:1.65;margin:.3rem 0}
+.social-btns{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem}
+.soc{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:800;border-radius:999px;padding:.7rem 1.3rem;min-height:48px;color:#fff;transition:transform .2s}
+.soc:hover{transform:translateY(-2px)}
+.soc.fb{background:#1877f2}.soc.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+/* footer */
+footer{background:var(--ink);color:var(--bg);padding:46px 0 30px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}
+footer a{color:inherit;opacity:.85;text-decoration:none;font-weight:600}
+footer a:hover{opacity:1;text-decoration:underline}
+footer h4{font-family:'Sora';margin:0 0 .8rem;font-size:1rem}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.foot-note{border-top:1px solid rgba(255,255,255,.16);margin-top:30px;padding-top:18px;font-size:.84rem;opacity:.75;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}
+.foot-credit{border-top:1px solid rgba(255,255,255,.16);margin-top:18px;padding-top:16px;text-align:center;font-family:'Sora';font-weight:700;font-size:.92rem;letter-spacing:.01em}
+/* floating social */
+.fab{position:fixed;right:18px;bottom:18px;z-index:70;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
+.fab-main{width:58px;height:58px;border-radius:50%;border:none;background:var(--grad);color:#fff;font-size:1.35rem;box-shadow:0 14px 30px rgba(37,99,235,.45);position:relative;display:grid;place-items:center}
+.fab-main::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,99,235,.5);animation:pulse 2s ease-out infinite}
+@keyframes pulse{from{transform:scale(.85);opacity:1}to{transform:scale(1.25);opacity:0}}
+.fab a{width:48px;height:48px;border-radius:50%;display:none;place-items:center;color:#fff;text-decoration:none;font-weight:800;box-shadow:var(--shadow-sm)}
+.fab.open a{display:grid}
+.fab a.fb{background:#1877f2}.fab a.ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}
+/* modal */
+.modal{position:fixed;inset:0;z-index:90;background:rgba(10,13,26,.55);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center;padding:0}
+.modal.open{display:flex}
+.modal-box{background:var(--surface);width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:26px 26px 0 0;padding:1.6rem;animation:up .35s ease}
+@media(min-width:640px){.modal{align-items:center;padding:20px}.modal-box{border-radius:26px}}
+@keyframes up{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-box h3{font-size:1.3rem;margin-bottom:.4rem}
+.field{margin-bottom:.85rem}
+.field label{display:block;font-weight:800;font-size:.84rem;margin-bottom:.35rem}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:.65rem .85rem;background:var(--bg);color:var(--ink)}
+.field textarea{min-height:74px;resize:vertical}
+.x-btn{float:right;background:var(--surface2);border:none;width:40px;height:40px;border-radius:50%;font-size:1.05rem}
+/* admin */
+.admin{position:fixed;inset:0;z-index:100;background:var(--bg);overflow:auto;display:none}
+.admin.open{display:block}
+.admin-head{position:sticky;top:0;background:var(--frost);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:5}
+.admin-head .wrap{display:flex;align-items:center;gap:.8rem;padding-top:.7rem;padding-bottom:.7rem;flex-wrap:wrap}
+.atabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:20px 0}
+.atab{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:.55rem 1.2rem;font-weight:800}
+.atab.active{background:var(--grad);color:#fff;border-color:transparent}
+.acard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.3rem;margin-bottom:18px}
+.arow{display:flex;gap:.9rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.arow:last-child{border-bottom:none}
+.arow img{width:64px;height:52px;object-fit:cover;border-radius:11px}
+.arow .grow{flex:1;min-width:0}
+.arow b{display:block;font-size:.95rem}
+.arow span{font-size:.82rem;color:var(--muted);font-weight:600}
+.mini-btn{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:.45rem .95rem;font-weight:800;font-size:.82rem;min-height:44px}
+.mini-btn.danger{color:#dc2626;border-color:rgba(220,38,38,.35)}
+.pin-box{max-width:380px;margin:9vh auto;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:2rem;box-shadow:var(--shadow);text-align:center}
+.pin-box input{text-align:center;font-size:1.4rem;letter-spacing:.5em;width:100%;border:1.5px solid var(--line);border-radius:13px;padding:.6rem;background:var(--bg);color:var(--ink);margin:.8rem 0}
+.imgpick{display:flex;gap:.5rem;flex-wrap:wrap}
+.imgpick button{border:2.5px solid transparent;border-radius:13px;padding:0;overflow:hidden;width:64px;height:52px;min-height:52px}
+.imgpick button.on{border-color:var(--blue)}
+.imgpick img{width:100%;height:100%;object-fit:cover}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:var(--ink);color:var(--bg);border-radius:999px;padding:.75rem 1.4rem;font-weight:800;font-size:.9rem;z-index:200;transition:transform .35s ease;box-shadow:var(--shadow);max-width:92vw;text-align:center}
+.toast.show{transform:translate(-50%,0)}
+.hidden{display:none!important}
+/* ===== commerce: cart / orders / tracking / reviews ===== */
+.cart-badge{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:999px;background:var(--grad);color:#fff;font-size:.72rem;font-weight:800;padding:0 5px;margin-left:.35rem}
+.pbadge{position:absolute;top:10px;left:10px;z-index:3;border-radius:999px;padding:.32rem .7rem;font-size:.72rem;font-weight:800;letter-spacing:.04em;color:#fff;box-shadow:var(--shadow-sm)}
+.pbadge.pre{background:linear-gradient(92deg,#b45309,#f59e0b)}
+.pbadge.sold{background:#374151}
+button:disabled{opacity:.45;cursor:not-allowed}
+.shop-tools{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.shop-tools input[type=search]{flex:1;min-width:180px;border:1.5px solid var(--line);border-radius:999px;padding:.6rem 1.1rem;background:var(--surface);color:var(--ink)}
+.shop-tools select{border:1.5px solid var(--line);border-radius:999px;padding:.6rem 1rem;background:var(--surface);color:var(--ink);font-weight:700}
+.add-cart-btn{width:100%;margin-top:.55rem;background:var(--surface2);color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:.55rem;font-weight:800;font-size:.86rem}
+.add-cart-btn:hover{border-color:rgba(37,99,235,.45);color:var(--blue)}
+.drawer-veil{position:fixed;inset:0;background:rgba(10,13,26,.5);z-index:94;opacity:0;pointer-events:none;visibility:hidden;transition:opacity .3s,visibility 0s linear .3s}
+.drawer-veil.open{opacity:1;pointer-events:auto;visibility:visible;transition:opacity .3s}
+.drawer{position:fixed;top:0;right:0;height:100dvh;width:min(400px,94vw);background:var(--surface);z-index:95;transform:translateX(105%);visibility:hidden;transition:transform .35s ease,visibility 0s linear .35s;display:flex;flex-direction:column;box-shadow:-18px 0 44px rgba(0,0,0,.25)}
+.drawer.open{transform:none;visibility:visible;transition:transform .35s ease}
+.drawer-head{display:flex;align-items:center;gap:.6rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line)}
+.drawer-body{flex:1;overflow:auto;padding:.6rem 1.2rem}
+.drawer-foot{border-top:1px solid var(--line);padding:1rem 1.2rem}
+.cart-line{display:flex;gap:.7rem;padding:.7rem 0;border-bottom:1px solid var(--line);align-items:center}
+.cart-line img{width:58px;height:48px;object-fit:cover;border-radius:10px}
+.qty-btn{width:36px;height:36px;min-height:36px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-weight:800;font-size:1rem;line-height:1}
+.ord-line{display:flex;gap:.7rem;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.ord-line img{width:52px;height:42px;object-fit:cover;border-radius:9px}
+.ord-totals{background:var(--surface2);border-radius:14px;padding:.8rem 1rem;margin:.4rem 0 1rem;font-weight:700}
+.ord-totals div{display:flex;justify-content:space-between;padding:.15rem 0;gap:1rem}
+.ord-totals .grand{font-family:'Sora';font-size:1.08rem;border-top:1px solid var(--line);margin-top:.35rem;padding-top:.5rem}
+.pay-opt{display:flex;gap:.55rem;align-items:center;border:1.5px solid var(--line);border-radius:13px;padding:.6rem .8rem;font-weight:700;cursor:pointer}
+.pay-opt input{accent-color:var(--blue);min-height:auto;width:18px;height:18px;flex:none}
+.tl{display:flex;gap:0;margin:1.1rem 0 .6rem;flex-wrap:wrap}
+.tl-step{flex:1;min-width:100px;text-align:center;position:relative;padding-top:26px;font-weight:800;font-size:.82rem;color:var(--muted)}
+.tl-step::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--surface2);border:2.5px solid var(--line);z-index:2}
+.tl-step::after{content:"";position:absolute;top:13px;left:calc(-50% + 10px);width:calc(100% - 20px);height:3px;background:var(--line)}
+.tl-step:first-child::after{display:none}
+.tl-step.done{color:var(--ink)}
+.tl-step.done::before{background:var(--blue);border-color:var(--blue)}
+.tl-step.done::after{background:var(--blue)}
+.tl-step small{display:block;font-weight:600;font-size:.72rem}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.rev-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.2rem 1.3rem}
+.rev-stars{color:#f59e0b;font-size:1.05rem;letter-spacing:.15em}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.info-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.3rem}
+.info-card h3{font-size:1.05rem;margin-bottom:.5rem}
+.info-card p,.info-card li{color:var(--ink2);font-weight:600;line-height:1.6;font-size:.94rem}
+.info-card ul{margin:.2rem 0;padding-left:1.1rem}
+.size-table{width:100%;border-collapse:collapse;font-weight:600}
+.size-table th,.size-table td{padding:.55rem .6rem;border-bottom:1px solid var(--line);text-align:center}
+.size-table th{font-family:'Sora';font-size:.8rem;letter-spacing:.05em;text-transform:uppercase}
+.wf-rail-wrap{touch-action:pan-y;cursor:grab}
+.wf-rail-wrap:active{cursor:grabbing}
+.look-card.sel{outline:3px solid #111;outline-offset:2px;opacity:1;transform:none;box-shadow:0 20px 38px rgba(60,50,20,.2)}
+.ord-badge{display:none;place-items:center;min-width:22px;height:22px;border-radius:999px;background:#dc2626;color:#fff;font-size:.72rem;font-weight:800;padding:0 6px;margin-left:.35rem}
+.status-sel{border:1.5px solid var(--line);border-radius:999px;padding:.4rem .8rem;font-weight:800;background:var(--surface);color:var(--ink);min-height:44px}
+@media(max-width:520px){.wf-ritem{width:96px;margin-left:-48px;margin-top:-44px}.wf-ritem img{height:56px}}
+/* responsive */
+@media(max-width:900px){
+  .hero-grid,.why-grid,.visit-card{grid-template-columns:1fr}
+  .hero-card img{height:320px}
+  .stage{height:520px}
+  .model-wrap{width:158px}.model-card img{height:228px}.model-reflect img{height:228px}
+  .ocard{width:128px}.ocard img{height:66px}
+  .foot-grid{grid-template-columns:1fr}
+  .nav-links a:not(.keep){display:none}
+}
+@media(max-width:640px){
+  /* lighter effects on phones: premium feel, no lag */
+  .ocard,.tray,.worn,.stab{backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+  .ocard{box-shadow:0 8px 18px rgba(31,38,80,.12)}
+  .model-card{box-shadow:0 14px 28px rgba(31,38,80,.20)}
+  .hero-card{box-shadow:0 12px 26px rgba(31,38,80,.14)}
+  .fab-main::after{animation-duration:2.6s}
+  .tray{gap:.55rem;padding:.55rem .7rem}
+  .tray .btn{margin-left:0}
+  .wf-item,.wf-ritem{box-shadow:0 8px 18px rgba(60,50,20,.12)}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><span class="logo-mark">Z</span><span><span id="logoName">Zee Shoes</span><small>Mandian · Abbottabad</small></span></a>
+    <div class="nav-links">
+      <a href="#collection">Collection</a>
+      <a href="#tryon">Try-On Studio</a>
+      <a href="#why">Why Zee</a>
+      <a href="#visit" class="keep">Visit Us</a>
+      <button class="admin-btn" style="background:var(--surface2);color:var(--ink);border:1.5px solid var(--line)" onclick="openCart()">🛒 Cart<span class="cart-badge" id="cartCount">0</span></button>
+      <button class="admin-btn" onclick="openAdmin()">⚙ Admin Panel</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="demo-tag">Demo Website — Sample</span>
+      <h1 style="margin-top:16px">Step Into Style at <span class="grad-text">Zee Shoes</span></h1>
+      <p class="lead">Mandian's big footwear destination — gents formal shoes, sports sneakers, sandals, slippers and school shoes, all under one roof in Abbottabad. Walk in, try on, walk out happy.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-grad" href="#collection">Shop the Collection →</a>
+        <a class="btn btn-ghost" href="#tryon">Open Try-On Studio</a>
+      </div>
+      <div class="hero-stats">
+        <div><b><span data-count="2500">0</span>+</b><span>Pairs in store</span></div>
+        <div><b><span data-count="850">0</span>+</b><span>Styles &amp; designs</span></div>
+        <div><b><span data-count="5">0</span></b><span>Shoe categories</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card"><img src="assets/hero-shoes.jpg" alt="Red, black and white high-top sports sneakers on a running track" /></div>
+      <div class="hero-badge hb1">🔥 New sports arrivals</div>
+      <div class="hero-badge hb2">👞 Gents · Sports · Sandals</div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<section style="padding-top:38px">
+  <div class="wrap">
+    <div class="offer-strip" id="offerStrip"></div>
+  </div>
+</section>
+
+<section id="categories" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Shop by Category</span>
+      <h2>Every pair has a <span class="grad-text">purpose</span></h2>
+      <p>From morning runs to office days and relaxed evenings — pick your category and explore the range.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<section id="collection" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">The Collection</span>
+      <h2>This season's <span class="grad-text">demo range</span></h2>
+      <p>Sample products with demo prices in PKR. Product photos are sample demo photography for this demo website. Order any pair right here on the page, add pairs to your cart for one combined order, or reach Zee Shoes on Facebook and Instagram.</p>
+    </div>
+    <div class="shop-tools">
+      <input type="search" id="searchInput" placeholder="Search shoes by name or category…" aria-label="Search products" />
+      <select id="sortSel" aria-label="Sort products">
+        <option value="featured">Sort: Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="az">Name: A–Z</option>
+      </select>
+      <button class="mini-btn" onclick="openSizeGuide()">📏 Size Guide</button>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<section id="tryon" style="padding-top:16px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Virtual Fitting Room</span>
+      <h2>The <span class="grad-text">Try-On Studio</span></h2>
+      <p>Pick a category, tap any floating shoe, and see it on the model instantly. Colours in the tray below follow the pair you choose.</p>
+    </div>
+    <div class="studio reveal" id="studio">
+      <div class="studio-word">STEP</div>
+      <div class="studio-tabs" id="studioTabs"></div>
+      <div class="stage" id="stage">
+        <div class="stage-fade" id="stageFade">
+          <div class="floor"></div>
+          <div class="orbit" id="orbit"></div>
+          <div class="model-wrap">
+            <div class="model-card"><img src="assets/model-man.jpg" alt="Model wearing casual shoes in the Zee Shoes try-on studio" /></div>
+            <div class="model-reflect"><img src="assets/model-man.jpg" alt="" /></div>
+          </div>
+          <div class="worn" id="wornBox">
+            <img id="wornImg" src="assets/sneaker-red.jpg" alt="Currently selected shoe" />
+            <div><b id="wornName">Velocity Knit Runner</b><span>Now on the model</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tray" id="tray"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===== @webforge6 mechanics — warm cream editorial sections ===== */
+.wf{background:#faf6ee;color:#141414;border-radius:34px;padding:34px 22px 30px;border:1px solid #e9e1d2;position:relative;overflow:hidden}
+.wf .wf-kicker{font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#8a8378}
+.wf h2{font-family:'Sora';font-size:clamp(1.6rem,3.4vw,2.3rem);text-transform:uppercase;letter-spacing:.01em;margin:.5rem 0 .4rem;color:#111}
+.wf .wf-sub{color:#6f6a5f;font-weight:600;max-width:36rem;line-height:1.6;margin:0}
+.wf-name{font-family:'Sora';font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:#111}
+.wf-label{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8a8378}
+.wf-price{font-family:'Sora';font-weight:800;color:#111}
+.wf-pill{background:#111;color:#faf6ee;border:none;border-radius:999px;padding:.72rem 1.5rem;font-weight:800;font-size:.9rem;min-height:48px;transition:transform .2s,background .2s}
+.wf-pill:hover{transform:translateY(-2px);background:#000}
+.wf-pill.light{background:#fff;color:#111;border:1.5px solid #111}
+.wf-size{display:inline-grid;place-items:center;min-width:44px;height:44px;padding:0 .5rem;border:1.5px solid #d8d0bf;border-radius:11px;background:#fff;font-weight:800;cursor:pointer;font-size:.9rem}
+.wf-size.on{border-color:#111;background:#111;color:#fff}
+.wf-swatch{width:44px;height:44px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 0 0 1.5px #cfc7b4, inset 0 0 0 10px #fff;cursor:pointer;padding:0;min-height:44px}
+.wf-swatch.on{box-shadow:0 0 0 2.5px #111, inset 0 0 0 10px #fff}
+/* orbit wheel */
+.wf-wheel-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:center;margin-top:10px}
+.wf-stage{position:relative;height:350px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.wf-stage:active{cursor:grabbing}
+.wf-ellipse{position:absolute;left:50%;top:56%;width:88%;height:120px;transform:translate(-50%,-50%);border:2px dashed #ddd3bf;border-radius:50%;pointer-events:none}
+.wf-item{position:absolute;left:50%;top:56%;width:172px;margin-left:-86px;margin-top:-64px;background:#fff;border:1px solid #eae2d0;border-radius:18px;padding:.5rem;box-shadow:0 14px 30px rgba(60,50,20,.13);cursor:pointer;will-change:transform,opacity}
+.wf-item img{width:100%;height:104px;object-fit:cover;border-radius:12px;pointer-events:none}
+.wf-item b{display:block;font-size:.74rem;font-family:'Sora';text-transform:uppercase;margin:.4rem .15rem 0;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-thumbs{display:flex;gap:.5rem;justify-content:center;margin-top:6px;flex-wrap:wrap}
+.wf-thumbs button{width:56px;height:46px;border-radius:11px;overflow:hidden;border:2.5px solid transparent;padding:0;min-height:46px;background:#fff}
+.wf-thumbs button.on{border-color:#111}
+.wf-thumbs img{width:100%;height:100%;object-fit:cover}
+.wf-counter{font-family:'Sora';font-weight:800;font-size:1.05rem;color:#111;text-align:center;margin-top:.55rem}
+.wf-counter span{color:#a39a86}
+.wf-info .wf-name{font-size:1.45rem;line-height:1.2}
+.wf-sizes{display:flex;gap:.45rem;flex-wrap:wrap;margin:.6rem 0 1rem}
+/* curved rail */
+.wf-rail-wrap{position:relative;height:320px;margin-top:6px;transition:opacity .35s ease,filter .35s ease}
+.wf-rail-wrap.faded{opacity:.35;filter:saturate(.4)}
+.wf-rail-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.wf-ritem{position:absolute;width:138px;margin-left:-69px;margin-top:-52px;background:#fff;border:1px solid #eae2d0;border-radius:16px;padding:.45rem;box-shadow:0 10px 24px rgba(60,50,20,.12);cursor:pointer;transition:transform .35s ease,opacity .35s ease,box-shadow .35s ease;z-index:2}
+.wf-ritem img{width:100%;height:78px;object-fit:cover;border-radius:11px;pointer-events:none}
+.wf-ritem b{display:block;font-size:.7rem;font-family:'Sora';text-transform:uppercase;margin:.35rem .1rem 0;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-rail-wrap.has-active .wf-ritem{opacity:.32;filter:grayscale(.5)}
+.wf-rail-wrap.has-active .wf-ritem.active{opacity:1;filter:none;transform:scale(1.22) rotate(-2deg);box-shadow:0 24px 44px rgba(60,50,20,.25);z-index:5}
+.wf-rail-info{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border:1px solid #eae2d0;border-radius:18px;padding:.95rem 1.2rem;margin-top:4px}
+.wf-rail-info .grow{flex:1;min-width:180px}
+/* looks grid */
+.wf-looks-head{display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+.wf-looks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;transition:opacity .25s ease}
+.wf-looks.shuffling{opacity:0}
+.look-card{background:#fff;border:1px solid #eae2d0;border-radius:20px;overflow:hidden;cursor:pointer;opacity:.5;transform:scale(.965);transition:transform .35s ease,opacity .35s ease,box-shadow .35s ease;text-align:left;width:100%;padding:0}
+.look-card.mid{opacity:1;transform:none}
+.look-card:hover{opacity:1;transform:translateY(-5px);box-shadow:0 20px 38px rgba(60,50,20,.18)}
+.look-card .limg{position:relative}
+.look-card .limg>img{width:100%;height:168px;object-fit:cover}
+.look-minis{position:absolute;right:8px;bottom:8px;display:flex;gap:5px}
+.look-minis img{width:40px;height:32px;object-fit:cover;border-radius:8px;border:2px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.look-body{padding:.85rem 1rem 1rem}
+.look-body .wf-name{font-size:.98rem}
+.look-total{font-weight:800;color:#111;margin-top:.25rem}
+.look-total span{color:#8a8378;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+/* quick view + look modal pieces */
+.qv-piece{display:flex;gap:.8rem;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--line)}
+.qv-piece:last-child{border-bottom:none}
+.qv-piece img{width:62px;height:50px;object-fit:cover;border-radius:10px}
+.qv-piece .grow{flex:1;min-width:0}
+.qv-piece b{display:block;font-size:.92rem}
+.qv-piece span{font-size:.8rem;color:var(--muted);font-weight:700}
+.add-btn{border:1.5px solid #111;background:#fff;color:#111;border-radius:999px;padding:.45rem 1rem;font-weight:800;font-size:.8rem;min-height:40px}
+.add-btn.added{background:#111;color:#fff}
+@media(max-width:900px){
+  .wf-wheel-grid{grid-template-columns:1fr}
+  .wf-stage{height:300px}
+  .wf-item{width:138px;margin-left:-69px}
+  .wf-item img{height:82px}
+  .wf-looks{grid-template-columns:repeat(2,1fr)}
+  .wf-rail-wrap{height:290px}
+  .wf-ritem{width:112px;margin-left:-56px}
+  .wf-ritem img{height:62px}
+}
+@media(max-width:520px){.wf-looks{grid-template-columns:1fr}.look-card{opacity:.85}.look-card.mid{opacity:1}}
+</style>
+
+<section id="orbitwheel" style="padding-top:6px">
+  <div class="wrap">
+    <div class="wf reveal">
+      <span class="wf-kicker">Drag the Wheel</span>
+      <h2>Spin the Collection</h2>
+      <p class="wf-sub">Drag left or right — the shoes ride the ellipse. The pair at the front is the one in focus: its name, price and sizes are right beside it.</p>
+      <div class="wf-wheel-grid">
+        <div>
+          <div class="wf-stage" id="wfStage"><div class="wf-ellipse"></div></div>
+          <div class="wf-thumbs" id="wfThumbs"></div>
+          <div class="wf-counter" id="wfCounter">01 <span>/ 06</span></div>
+        </div>
+        <div class="wf-info">
+          <span class="wf-label" id="wfCat">Category</span>
+          <div class="wf-name" id="wfName">—</div>
+          <div class="wf-price" id="wfPrice" style="font-size:1.3rem;margin:.35rem 0">—</div>
+          <span class="wf-label">Select size</span>
+          <div class="wf-sizes" id="wfSizes"></div>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <button class="wf-pill" id="wfQuickBtn">Quick View</button>
+            <button class="wf-pill light" id="wfOrderBtn">Order This Pair</button>
+          </div>
+          <p style="color:#8a8378;font-weight:600;font-size:.86rem;margin:.9rem 0 0">Tip: tap any shoe on the wheel to bring it to the front.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rail" style="padding-top:26px">
+  <div class="wrap">
+    <div class="wf reveal">
+      <span class="wf-kicker">The Curved Rail</span>
+      <h2>On the Rail</h2>
+      <p class="wf-sub">Pairs resting along one curved rail. Hover or tap a pair to spotlight it — the rest dim and the details update below. Tap the spotlit pair again for the full quick view.</p>
+      <div class="wf-rail-wrap" id="wfRail">
+        <svg class="wf-rail-svg" viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true"><path d="M -20 250 Q 500 -60 1020 250" fill="none" stroke="#ddd3bf" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
+      </div>
+      <div class="wf-rail-info">
+        <div class="grow">
+          <span class="wf-label" id="railCat">Category</span>
+          <div class="wf-name" id="railName" style="font-size:1.15rem">—</div>
+          <div id="railDesc" style="color:#6f6a5f;font-weight:600;font-size:.92rem">Hover a pair on the rail to see its story.</div>
+        </div>
+        <div class="wf-price" id="railPrice" style="font-size:1.2rem">—</div>
+        <button class="wf-pill" id="railQuickBtn">Quick View</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="looks" style="padding-top:26px">
+  <div class="wrap">
+    <div class="wf reveal">
+      <div class="wf-looks-head">
+        <div style="flex:1;min-width:220px">
+          <span class="wf-kicker">Complete the Look</span>
+          <h2>Try the Look</h2>
+          <p class="wf-sub">Six ready-made Zee combinations — the main pair plus the pairs that complete the day. Shuffle them, tap one, and order the whole look at once.</p>
+        </div>
+        <button class="wf-pill" id="shuffleBtn">🔀 Shuffle Looks</button>
+      </div>
+      <div class="wf-looks" id="looksGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap why-grid">
+    <div class="reveal">
+      <span class="kicker">Why Zee Shoes</span>
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.5rem);margin:.55rem 0 .6rem">One big Mandian store, <span class="grad-text">every shoe you need</span></h2>
+      <p style="color:var(--ink2);line-height:1.65;margin:0">Zee Shoes brings gents, sports, sandals, slippers and school footwear together in one spacious Mandian store — no running shop to shop across Abbottabad.</p>
+      <ul class="why-list">
+        <li>Gents formal, sports sneakers, sandals &amp; slippers under one roof</li>
+        <li>School shoes and everyday pairs for the whole season</li>
+        <li>Try every size in store — staff help you find the right fit</li>
+        <li>New styles showcased regularly on Facebook &amp; Instagram videos</li>
+      </ul>
+      <div class="stat-grid">
+        <div class="stat"><b><span data-count="2500">0</span>+</b><span>Pairs ready in store</span></div>
+        <div class="stat"><b><span data-count="850">0</span>+</b><span>Styles to choose from</span></div>
+        <div class="stat"><b><span data-count="5">0</span></b><span>Full categories</span></div>
+        <div class="stat"><b><span data-count="7">0</span></b><span>Days open a week</span></div>
+      </div>
+    </div>
+    <div class="reveal"><img class="main" loading="lazy" src="assets/store.jpg" alt="Inside a spacious footwear and fashion store with shelves of products" /></div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Customer Reviews</span>
+      <h2>Loved across <span class="grad-text">Abbottabad</span></h2>
+      <p>What Zee Shoes customers say about their pairs.</p>
+    </div>
+    <div class="rev-grid" id="revGrid"></div>
+  </div>
+</section>
+
+<section id="track" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Delivery · Payment · Tracking</span>
+      <h2>Good to <span class="grad-text">know</span></h2>
+      <p>How ordering from Zee Shoes works — delivery charges, payment options, and live tracking for every order placed on this page.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>🚚 Delivery</h3>
+        <div id="delInfo"></div>
+      </div>
+      <div class="info-card">
+        <h3>💳 Payment</h3>
+        <p style="margin:.2rem 0 .6rem">We accept:</p>
+        <div id="payStrip" style="display:flex;gap:.5rem;flex-wrap:wrap"></div>
+        <p style="font-size:.88rem;margin:.7rem 0 0">Pay in cash when your order arrives, or transfer in advance by JazzCash / Easypaisa — pick your method in the order form.</p>
+      </div>
+      <div class="info-card">
+        <h3>📦 Track Your Order</h3>
+        <p style="margin:.2rem 0 .7rem">Enter your Order ID (e.g. #1001) or the mobile number you ordered with.</p>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <input id="trackInput" placeholder="#1001 or 03xx…" style="flex:1;min-width:150px;border:1.5px solid var(--line);border-radius:999px;padding:.6rem 1rem;background:var(--bg);color:var(--ink)" />
+          <button class="btn btn-grad" style="padding:.6rem 1.25rem" onclick="trackOrder()">Track</button>
+        </div>
+      </div>
+    </div>
+    <div id="trackResult"></div>
+  </div>
+</section>
+
+<section id="visit" style="padding-top:10px">
+  <div class="wrap">
+    <div class="visit-card reveal">
+      <div>
+        <span class="kicker">Visit Us</span>
+        <h3 id="visitName">Zee Shoes — Mandian, Abbottabad</h3>
+        <p>📍 <span id="visitAddr">Mandian, Abbottabad, Khyber Pakhtunkhwa</span></p>
+        <p>🕘 <span id="visitHours">Open daily — 10:00 AM to 10:00 PM</span></p>
+        <p>See the newest arrivals, restocks and offer videos on the shop's social pages, and message the shop there for any pair you like.</p>
+        <div class="social-btns">
+          <a class="soc fb" id="fbBtn" href="https://www.facebook.com/" target="_blank" rel="noopener">f&nbsp; Zee Shoes on Facebook</a>
+          <a class="soc ig" id="igBtn" href="https://www.instagram.com/" target="_blank" rel="noopener">◎&nbsp; Zee Shoes on Instagram</a>
+        </div>
+      </div>
+      <div>
+        <img loading="lazy" src="assets/sneaker-air.jpg" alt="White sports sneaker floating over a blue running track" style="border-radius:20px;height:100%;min-height:240px;width:100%;object-fit:cover" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4 id="footName">Zee Shoes</h4>
+        <p style="opacity:.8;line-height:1.6;margin:0">Gents shoes, sports sneakers, sandals, slippers and school shoes — Mandian, Abbottabad.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#tryon">Try-On Studio</a></li>
+          <li><a href="#why">Why Zee</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#track">Track Your Order</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shop &amp; Owner</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Zee Shoes on Facebook</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Zee Shoes on Instagram</a></li>
+          <li><a href="#" onclick="openAdmin();return false;">⚙ Admin Panel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Zee Shoes, Mandian Abbottabad — Demo website sample. Prices shown are demo prices.</span>
+      <span>Made as a sales demo · Admin PIN demo: 1234</span>
+    </div>
+    <div class="foot-credit">Developed by Future AI Technologies © 2026 Zee Shoes. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div class="fab" id="fab">
+  <a class="fb" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Zee Shoes on Facebook">f</a>
+  <a class="ig" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Zee Shoes on Instagram">◎</a>
+  <button class="fab-main" onclick="document.getElementById('fab').classList.toggle('open')" aria-label="Open Zee Shoes social links">💬</button>
+</div>
+
+<div class="modal" id="enqModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="x-btn" onclick="closeModal()" aria-label="Close">✕</button>
+    <div id="enqFormWrap">
+      <h3>Place your order</h3>
+      <p style="color:var(--muted);margin:.2rem 0 1rem;font-weight:600">Fill this in — your order is saved with the shop and confirmed here on screen, with an Order ID you can track.</p>
+      <div id="ordItems" style="margin-bottom:1rem"></div>
+      <form id="enqForm">
+        <div class="field"><label>Your name</label><input id="enqName" required placeholder="e.g. Ahmed Khan" /></div>
+        <div class="field"><label>Mobile number</label><input id="enqPhone" required inputmode="tel" placeholder="03xx xxxxxxx" /></div>
+        <div class="field"><label>Address / City</label><input id="enqCity" required placeholder="e.g. House 12, Mandian, Abbottabad" /></div>
+        <div class="field"><label>Delivery area</label><select id="ordArea"></select><p id="ordDelLine" style="color:var(--muted);font-weight:600;font-size:.86rem;margin:.45rem 0 0"></p></div>
+        <div class="field"><label>Payment method</label>
+          <div style="display:grid;gap:.5rem">
+            <label class="pay-opt"><input type="radio" name="paym" value="Cash on Delivery" checked /> Cash on Delivery</label>
+            <label class="pay-opt"><input type="radio" name="paym" value="JazzCash" /> JazzCash</label>
+            <label class="pay-opt"><input type="radio" name="paym" value="Easypaisa" /> Easypaisa</label>
+          </div>
+          <p id="payInfo" style="color:var(--muted);font-weight:600;font-size:.86rem;margin:.5rem 0 0"></p>
+        </div>
+        <div class="field"><label>Note (optional)</label><textarea id="enqMsg" placeholder="Anything the shop should know…"></textarea></div>
+        <div class="ord-totals" id="ordTotals"></div>
+        <button class="btn btn-grad" style="width:100%;justify-content:center" type="submit">Place Order ✓</button>
+      </form>
+    </div>
+    <div id="enqDone" class="hidden" style="text-align:center;padding:1rem 0"></div>
+  </div>
+</div>
+
+<div class="modal" id="qvModal" role="dialog" aria-modal="true">
+  <div class="modal-box" style="max-width:560px">
+    <button class="x-btn" onclick="closeQV()" aria-label="Close">✕</button>
+    <img id="qvImg" src="assets/sneaker-red.jpg" alt="Selected shoe quick view" style="width:100%;height:250px;object-fit:cover;border-radius:18px" />
+    <span class="wf-label" id="qvCat" style="display:block;margin-top:1rem">Category</span>
+    <div class="wf-name" id="qvName" style="font-size:1.4rem">—</div>
+    <p id="qvDesc" style="color:var(--muted);font-weight:600;line-height:1.6;margin:.45rem 0"></p>
+    <div class="wf-price" id="qvPrice" style="font-size:1.25rem">—</div>
+    <div id="qvBadges" style="margin-top:.45rem"></div>
+    <div style="display:flex;align-items:center;margin-top:.9rem"><span class="wf-label">Sizes</span><button class="mini-btn" style="margin-left:.7rem;padding:.3rem .8rem;min-height:36px" onclick="openSizeGuide()">📏 Size guide</button></div>
+    <div class="wf-sizes" id="qvSizes" style="margin:.5rem 0"></div>
+    <span class="wf-label" style="display:block">Colours</span>
+    <div id="qvColours" style="display:flex;gap:.55rem;margin:.55rem 0 1.1rem"></div>
+    <button class="wf-pill" id="qvOrderBtn" style="width:100%">Order This Pair</button>
+    <button class="wf-pill light" id="qvCartBtn" style="width:100%;margin-top:.55rem">🛒 Add to Cart</button>
+    <span class="wf-label" style="display:block;margin-top:1.2rem">You may also like</span>
+    <div id="qvRelated"></div>
+    <p style="text-align:center;color:var(--muted);font-weight:600;font-size:.86rem;margin:.8rem 0 0">Orders are saved right here on the site — or reach Zee Shoes on Facebook / Instagram.</p>
+  </div>
+</div>
+
+<div class="modal" id="lookModal" role="dialog" aria-modal="true">
+  <div class="modal-box" style="max-width:600px">
+    <button class="x-btn" onclick="closeLook()" aria-label="Close">✕</button>
+    <img id="lkImg" src="assets/hero-shoes.jpg" alt="Look main pair" style="width:100%;height:230px;object-fit:cover;border-radius:18px" />
+    <span class="wf-label" style="display:block;margin-top:1rem">Complete Look</span>
+    <div class="wf-name" id="lkName" style="font-size:1.35rem">—</div>
+    <p id="lkDesc" style="color:var(--muted);font-weight:600;line-height:1.6;margin:.45rem 0 .4rem"></p>
+    <span class="wf-label" style="display:block;margin-top:.7rem">In this look</span>
+    <div id="lkPieces"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;flex-wrap:wrap;gap:.7rem">
+      <div><span class="wf-label" style="display:block">Look total</span><span class="wf-price" id="lkTotal" style="font-size:1.3rem">—</span></div>
+      <button class="wf-pill" id="lkOrderBtn">Order the Full Look</button>
+    </div>
+  </div>
+</div>
+
+<div class="admin" id="adminPanel">
+  <div class="admin-head"><div class="wrap">
+    <b style="font-family:'Sora'">⚙ <span id="adminShopName">Zee Shoes</span> — Admin Panel</b>
+    <span class="chip">Demo panel — changes show on the site instantly</span>
+    <button class="mini-btn" style="margin-left:auto" onclick="closeAdmin()">← Back to Website</button>
+  </div></div>
+  <div class="wrap" style="padding-bottom:60px">
+    <div id="pinGate" class="pin-box">
+      <div style="font-size:2rem">🔐</div>
+      <h3 style="margin:.4rem 0">Owner Login</h3>
+      <p style="color:var(--muted);font-weight:600;margin:0">Enter the demo PIN to manage products, offers and settings.</p>
+      <input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••" />
+      <button class="btn btn-grad" style="width:100%;justify-content:center" onclick="checkPin()">Login</button>
+      <p id="pinErr" style="color:#dc2626;font-weight:700;min-height:1.2em;margin:.6rem 0 0"></p>
+      <p style="color:var(--muted);font-size:.85rem;font-weight:600">Demo PIN: 1234</p>
+    </div>
+    <div id="adminMain" class="hidden">
+      <div class="atabs">
+        <button class="atab active" data-atab="products" onclick="switchTab('products')">👟 Products</button>
+        <button class="atab" data-atab="orders" onclick="switchTab('orders')">📦 Orders<span class="ord-badge" id="ordBadge">0</span></button>
+        <button class="atab" data-atab="offers" onclick="switchTab('offers')">🎉 Offers / Banners</button>
+        <button class="atab" data-atab="reviews" onclick="switchTab('reviews')">⭐ Reviews</button>
+        <button class="atab" data-atab="settings" onclick="switchTab('settings')">🏪 Settings</button>
+        <button class="mini-btn danger" style="margin-left:auto" onclick="resetDemo()">Reset Demo Data</button>
+      </div>
+      <div id="tab-products">
+        <div class="acard">
+          <h3 id="prodFormTitle" style="margin-bottom:1rem">Add a Product</h3>
+          <form id="prodForm">
+            <input type="hidden" id="pfId" />
+            <div class="field"><label>Product name</label><input id="pfName" required placeholder="e.g. Velocity Knit Runner" /></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+              <div class="field"><label>Price (PKR)</label><input id="pfPrice" type="number" min="0" required placeholder="4999" /></div>
+              <div class="field"><label>Category</label><select id="pfCat"></select></div>
+            </div>
+            <div class="field"><label>Sizes (comma separated)</label><input id="pfSizes" placeholder="39, 40, 41, 42, 43, 44" /></div>
+            <div class="field"><label>Colours — names with hex, e.g. Red #b91c1c, Black #111827</label><input id="pfColours" placeholder="Black #111827, White #f8fafc" /></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+              <div class="field"><label style="display:flex;gap:.5rem;align-items:center"><input type="checkbox" id="pfPre" style="width:20px;height:20px;min-height:20px;flex:none" /> Pre-Order</label><input id="pfPreNote" placeholder="Expected note — e.g. Expected: 10 days" /></div>
+              <div class="field"><label style="display:flex;gap:.5rem;align-items:center"><input type="checkbox" id="pfSold" style="width:20px;height:20px;min-height:20px;flex:none" /> Sold Out</label><span style="font-size:.82rem;color:var(--muted);font-weight:600">Sold-out pairs show a badge and their order / cart buttons are disabled.</span></div>
+            </div>
+            <div class="field"><label>Photo — pick one or paste an image link</label>
+              <div class="imgpick" id="imgPick"></div>
+              <input id="pfImg" placeholder="assets/… or https://…" style="margin-top:.6rem;width:100%;border:1.5px solid var(--line);border-radius:13px;padding:.65rem .85rem;background:var(--bg);color:var(--ink)" />
+            </div>
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+              <button class="btn btn-grad" type="submit">Save Product</button>
+              <button class="btn btn-ghost hidden" type="button" id="pfCancel" onclick="clearProdForm()">Cancel Edit</button>
+            </div>
+          </form>
+        </div>
+        <div class="acard"><h3 style="margin-bottom:.6rem">Your Products</h3><div id="adminProdList"></div></div>
+      </div>
+      <div id="tab-orders" class="hidden">
+        <div class="acard">
+          <h3 style="margin-bottom:.4rem">Orders</h3>
+          <p style="color:var(--muted);font-weight:600;margin:.2rem 0 1rem">Demo note: orders shown here are the ones placed in this browser.</p>
+          <div id="adminOrderList"></div>
+        </div>
+      </div>
+      <div id="tab-offers" class="hidden">
+        <div class="acard">
+          <h3 style="margin-bottom:1rem">Add an Offer Banner</h3>
+          <form id="offerForm" style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <input id="ofText" required placeholder="e.g. Eid Sale — up to 30% off on sports sneakers" style="flex:1;min-width:220px;border:1.5px solid var(--line);border-radius:13px;padding:.65rem .85rem;background:var(--bg);color:var(--ink)" />
+            <button class="btn btn-grad" type="submit">Add Banner</button>
+          </form>
+        </div>
+        <div class="acard"><h3 style="margin-bottom:.6rem">Live Banners</h3><div id="adminOfferList"></div></div>
+      </div>
+      <div id="tab-reviews" class="hidden">
+        <div class="acard">
+          <h3 id="revFormTitle" style="margin-bottom:1rem">Add a Review</h3>
+          <form id="revForm">
+            <input type="hidden" id="rfId" />
+            <div class="field"><label>Customer name</label><input id="rfName" required placeholder="e.g. Ahmed Raza — Mandian" /></div>
+            <div class="field"><label>Stars</label><select id="rfStars"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+            <div class="field"><label>Review text</label><textarea id="rfText" required placeholder="What did the customer say?"></textarea></div>
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+              <button class="btn btn-grad" type="submit">Save Review</button>
+              <button class="btn btn-ghost hidden" type="button" id="rfCancel" onclick="clearRevForm()">Cancel Edit</button>
+            </div>
+          </form>
+        </div>
+        <div class="acard"><h3 style="margin-bottom:.6rem">Live Reviews</h3><div id="adminRevList"></div></div>
+      </div>
+      <div id="tab-settings" class="hidden">
+        <div class="acard">
+          <h3 style="margin-bottom:1rem">Shop Settings</h3>
+          <form id="setForm">
+            <div class="field"><label>Shop name</label><input id="sfName" /></div>
+            <div class="field"><label>Address</label><input id="sfAddr" /></div>
+            <div class="field"><label>Opening hours</label><input id="sfHours" /></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+              <div class="field"><label>Delivery — Abbottabad city fee (Rs)</label><input id="sfDelCityFee" type="number" min="0" /></div>
+              <div class="field"><label>Delivery — Abbottabad city time</label><input id="sfDelCityTime" /></div>
+              <div class="field"><label>Delivery — Nationwide fee (Rs)</label><input id="sfDelNatFee" type="number" min="0" /></div>
+              <div class="field"><label>Delivery — Nationwide time</label><input id="sfDelNatTime" /></div>
+            </div>
+            <div class="field"><label>JazzCash account number (optional — shown at checkout only if filled)</label><input id="sfJazz" placeholder="Leave empty to hide" /></div>
+            <div class="field"><label>Easypaisa account number (optional — shown at checkout only if filled)</label><input id="sfEasy" placeholder="Leave empty to hide" /></div>
+            <div class="field"><label>Facebook page link</label><input id="sfFb" /></div>
+            <div class="field"><label>Instagram link</label><input id="sfIg" /></div>
+            <button class="btn btn-grad" type="submit">Save Settings</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="sizeModal" role="dialog" aria-modal="true">
+  <div class="modal-box" style="max-width:480px">
+    <button class="x-btn" onclick="closeSizeGuide()" aria-label="Close">✕</button>
+    <h3>Shoe Size Guide</h3>
+    <p style="color:var(--muted);font-weight:600;line-height:1.6">Zee Shoes sizes are listed in EU numbers. Find yours:</p>
+    <table class="size-table">
+      <thead><tr><th>UK</th><th>EU</th><th>Pak</th><th>Foot length (cm)</th></tr></thead>
+      <tbody>
+        <tr><td>3.5</td><td>36</td><td>3.5</td><td>22.9</td></tr>
+        <tr><td>4.5</td><td>37</td><td>4.5</td><td>23.7</td></tr>
+        <tr><td>5.5</td><td>38</td><td>5.5</td><td>24.5</td></tr>
+        <tr><td>6</td><td>39</td><td>6</td><td>25.0</td></tr>
+        <tr><td>6.5</td><td>40</td><td>6.5</td><td>25.4</td></tr>
+        <tr><td>7.5</td><td>41</td><td>7.5</td><td>26.0</td></tr>
+        <tr><td>8</td><td>42</td><td>8</td><td>26.5</td></tr>
+        <tr><td>9</td><td>43</td><td>9</td><td>27.1</td></tr>
+        <tr><td>9.5</td><td>44</td><td>9.5</td><td>27.6</td></tr>
+        <tr><td>10.5</td><td>45</td><td>10.5</td><td>28.3</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-weight:600;font-size:.88rem;line-height:1.6">Between sizes? For sports shoes, go half a size up. Still unsure — try the pair in store at Mandian.</p>
+  </div>
+</div>
+
+<div class="drawer-veil" id="cartVeil" onclick="closeCart()"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-head"><b style="font-family:'Sora';font-size:1.1rem">🛒 Your Cart</b><button class="x-btn" style="margin-left:auto;float:none" onclick="closeCart()" aria-label="Close cart">✕</button></div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div style="display:flex;justify-content:space-between;font-family:'Sora';font-weight:800;font-size:1.1rem;margin-bottom:.7rem"><span>Total</span><span id="cartTotal">Rs 0</span></div>
+    <button class="btn btn-grad" id="cartCheckoutBtn" style="width:100%;justify-content:center" onclick="checkoutCart()">Checkout →</button>
+    <p style="color:var(--muted);font-weight:600;font-size:.82rem;text-align:center;margin:.6rem 0 0">Delivery is added at checkout — Abbottabad city or nationwide.</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= STATE (shared: storefront + try-on + wheel + rail + looks + admin) ================= */
+var CATS = {
+  sports:{label:'Sports Sneakers', icon:'🏃', accent:'#2563eb'},
+  formal:{label:'Gents Formal', icon:'👞', accent:'#7c3aed'},
+  sandals:{label:'Sandals', icon:'🩴', accent:'#b45309'},
+  slippers:{label:'Slippers', icon:'🏠', accent:'#0f766e'},
+  school:{label:'School Shoes', icon:'🎒', accent:'#dc2626'}
+};
+var CAT_DESCS = {
+  sports:'Lightweight knit sports shoe built for daily runs, gym sessions and match days around Abbottabad.',
+  formal:'Polished gents footwear for office, events and everyday smart dressing — comfortable from morning to night.',
+  sandals:'Open, breathable and easy to wear — a Mandian summer essential with a sturdy sole.',
+  slippers:'Soft everyday comfort for home — light on the feet, easy to slip on and off.',
+  school:'Durable school footwear made to survive the full term — neat, strong and easy to clean.'
+};
+function P(id,name,cat,price,img,sizes,colours){return {id:id,name:name,cat:cat,price:price,img:img,sizes:sizes,colours:colours};}
+function C(name,hex){return {name:name,hex:hex};}
+var DEFAULT_STATE = {
+  settings:{name:'Zee Shoes', address:'Mandian, Abbottabad, Khyber Pakhtunkhwa', hours:'Open daily — 10:00 AM to 10:00 PM (demo timings)', fb:'https://www.facebook.com/', ig:'https://www.instagram.com/', delivery:{cityFee:200, cityTime:'1–2 days', natFee:350, natTime:'3–5 days'}, pay:{jazz:'', easy:''}},
+  orders:[], cart:[], orderSeq:1000,
+  reviews:[
+    {id:'r1', name:'Ahmed Raza — Mandian', stars:5, text:'Bought the Velocity runners for my morning walks — perfect fit, fair price, and the staff let me try three sizes without any hurry.'},
+    {id:'r2', name:'Bilal Hussain — Abbottabad', stars:5, text:'School shoes for both my kids from one shop. Strong stitching — still going strong after a full term.'},
+    {id:'r3', name:'Usman Tariq — Supply', stars:4, text:'The Derby leather pair is my daily office shoe now. Comfortable from day one — will be back for sandals.'}
+  ],
+  offers:[
+    {id:'o1', text:'Season Sale — up to 25% off on selected sports sneakers in store'},
+    {id:'o2', text:'School season special — school shoes bundled with a free pair of socks'}
+  ],
+  products:[
+    P('p1','Velocity Knit Runner','sports',6499,'assets/sneaker-red.jpg',['39','40','41','42','43','44','45'],[C('Crimson','#b91c1c'),C('Black','#111827'),C('White','#f8fafc')]),
+    P('p2','AirFlex Court White','sports',5899,'assets/sneaker-air.jpg',['39','40','41','42','43','44'],[C('White','#f8fafc'),C('Black','#111827')]),
+    P('p3','Street Chunky Runner','sports',6999,'assets/sneaker-chunky.jpg',['40','41','42','43','44','45'],[C('Teal','#0f766e'),C('Orange','#ea580c'),C('White','#f8fafc')]),
+    P('p4','Court Smash High-Top','sports',7299,'assets/hero-shoes.jpg',['39','40','41','42','43','44'],[C('Red','#dc2626'),C('Black','#111827'),C('White','#f8fafc')]),
+    P('p5','Derby Tan Leather','formal',9499,'assets/formal-brown.jpg',['39','40','41','42','43','44','45'],[C('Tan','#b45309'),C('Dark Brown','#78350f')]),
+    P('p6','Rugged Tan Boot','formal',10999,'assets/boots.jpg',['40','41','42','43','44','45'],[C('Tan','#b45309'),C('Brown','#92400e')]),
+    P('p7','Classic Leather Sandal','sandals',3499,'assets/sandal2.jpg',['39','40','41','42','43','44'],[C('Brown','#92400e'),C('Black','#111827')]),
+    P('p8','Black Strap Sandal','sandals',3299,'assets/sandal3.jpg',['39','40','41','42','43','44'],[C('Black','#111827')]),
+    P('p9','Cork Comfort Slide','slippers',1999,'assets/sandals.jpg',['39','40','41','42','43','44'],[C('Stone','#a8a29e'),C('Brown','#92400e')]),
+    P('p10','Daily Flip Slipper','slippers',1499,'assets/slipper2.jpg',['39','40','41','42','43','44'],[C('Black','#111827'),C('Grey','#6b7280')]),
+    P('p11','Campus High-Top White','school',3899,'assets/legs-shoes.jpg',['36','37','38','39','40','41','42'],[C('White','#f8fafc')]),
+    P('p12','Scholar White Trainer','school',3599,'assets/sneaker-white.jpg',['36','37','38','39','40','41','42'],[C('White','#f8fafc'),C('Red','#dc2626')])
+  ]
+};
+var LS_KEY='zeeShoesDemoV1';
+var state;
+try{ var raw=localStorage.getItem(LS_KEY); state = raw? JSON.parse(raw) : JSON.parse(JSON.stringify(DEFAULT_STATE)); if(!state.products||!state.products.length) state=JSON.parse(JSON.stringify(DEFAULT_STATE)); }catch(e){ state=JSON.parse(JSON.stringify(DEFAULT_STATE)); }
+/* migration: older saved states gain the commerce fields */
+if(!Array.isArray(state.orders)) state.orders=[];
+if(!Array.isArray(state.cart)) state.cart=[];
+if(typeof state.orderSeq!=='number') state.orderSeq=1000;
+if(!Array.isArray(state.reviews)||!state.reviews.length) state.reviews=JSON.parse(JSON.stringify(DEFAULT_STATE.reviews));
+if(state.settings && !state.settings.delivery) state.settings.delivery=JSON.parse(JSON.stringify(DEFAULT_STATE.settings.delivery));
+if(state.settings && !state.settings.pay) state.settings.pay={jazz:'',easy:''};
+if(state.products) state.products.forEach(function(p){ if(p.preorder===undefined)p.preorder=false; if(p.preNote===undefined)p.preNote=''; if(p.soldout===undefined)p.soldout=false; });
+function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){} }
+function fmt(n){ return 'Rs ' + Number(n).toLocaleString('en-US'); }
+function byId(id){ return state.products.find(function(p){return p.id===id;}); }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function desc(p){ return p.desc || CAT_DESCS[p.cat] || ''; }
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(function(){t.classList.remove('show');},2600); }
+
+/* ================= SETTINGS / OFFERS / CATEGORIES / CATALOGUE ================= */
+function applySettings(){
+  var s=state.settings;
+  document.getElementById('logoName').textContent=s.name;
+  document.getElementById('footName').textContent=s.name;
+  document.getElementById('adminShopName').textContent=s.name;
+  document.getElementById('visitName').textContent=s.name+' — Mandian, Abbottabad';
+  document.getElementById('visitAddr').textContent=s.address;
+  document.getElementById('visitHours').textContent=s.hours;
+  document.querySelectorAll('a').forEach(function(a){
+    var h=a.getAttribute('href')||'';
+    if(h==='https://www.facebook.com/'||h===window._lastFb) a.setAttribute('href', s.fb);
+    if(h==='https://www.instagram.com/'||h===window._lastIg) a.setAttribute('href', s.ig);
+  });
+  window._lastFb=s.fb; window._lastIg=s.ig;
+  document.title = s.name+' — Mandian, Abbottabad | Demo Website';
+}
+function renderOffers(){
+  var w=document.getElementById('offerStrip');
+  w.innerHTML = state.offers.map(function(o){ return '<div class="offer-banner reveal in"><span style="font-size:1.3rem">🎉</span><div><b>'+esc(o.text)+'</b><br><span>Demo offer banner — the shop confirms its current offers on Facebook &amp; Instagram.</span></div><span class="tag">Demo Offer</span></div>'; }).join('');
+  document.getElementById('adminOfferList').innerHTML = state.offers.length? state.offers.map(function(o){ return '<div class="arow"><div class="grow"><b>'+esc(o.text)+'</b><span>Shown as a banner on the homepage</span></div><button class="mini-btn danger" onclick="delOffer(\''+o.id+'\')">Delete</button></div>'; }).join('') : '<p style="color:var(--muted);font-weight:600">No banners yet.</p>';
+}
+function renderCats(){
+  document.getElementById('catGrid').innerHTML = Object.keys(CATS).map(function(k){
+    var inCat=state.products.filter(function(p){return p.cat===k;});
+    var n=inCat.length;
+    var fromTxt = n? ' · from '+fmt(Math.min.apply(null, inCat.map(function(p){return p.price;}))) : '';
+    return '<button class="cat-card reveal in" onclick="filterAndGo(\''+k+'\')"><span class="cat-ico" style="background:'+CATS[k].accent+'">'+CATS[k].icon+'</span><h3>'+CATS[k].label+'</h3><p>'+n+' demo styles'+fromTxt+'</p></button>';
+  }).join('');
+}
+var activeFilter='all';
+function renderFilters(){
+  var keys=['all'].concat(Object.keys(CATS));
+  document.getElementById('filters').innerHTML = keys.map(function(k){
+    return '<button class="filter-btn'+(activeFilter===k?' active':'')+'" onclick="setFilter(\''+k+'\')">'+(k==='all'?'All Shoes':CATS[k].icon+' '+CATS[k].label)+'</button>';
+  }).join('');
+}
+function setFilter(k){ activeFilter=k; renderFilters(); renderCatalogue(); }
+function filterAndGo(k){ setFilter(k); document.getElementById('collection').scrollIntoView({behavior: reduced?'auto':'smooth'}); }
+var searchQ='', sortMode='featured';
+function renderCatalogue(){
+  var list = state.products.filter(function(p){ return activeFilter==='all' || p.cat===activeFilter; });
+  if(searchQ){ var q=searchQ.toLowerCase(); list=list.filter(function(p){ return p.name.toLowerCase().indexOf(q)>-1 || CATS[p.cat].label.toLowerCase().indexOf(q)>-1; }); }
+  list=list.slice();
+  if(sortMode==='low') list.sort(function(a,b){return a.price-b.price;});
+  else if(sortMode==='high') list.sort(function(a,b){return b.price-a.price;});
+  else if(sortMode==='az') list.sort(function(a,b){return a.name.localeCompare(b.name);});
+  document.getElementById('prodGrid').innerHTML = list.length? list.map(function(p){
+    var badge = p.soldout? '<span class="pbadge sold">Sold Out</span>' : (p.preorder? '<span class="pbadge pre">Pre-Order'+(p.preNote?' · '+esc(p.preNote):'')+'</span>' : '');
+    var dis = p.soldout? ' disabled':'';
+    return '<article class="prod-card reveal in"><div class="imgbox" style="position:relative">'+badge+'<img src="'+esc(p.img)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.src=\'assets/store.jpg\'"></div><div class="prod-body">'
+    +'<span class="prod-cat" style="color:'+CATS[p.cat].accent+'">'+CATS[p.cat].icon+' '+CATS[p.cat].label+'</span>'
+    +'<h3>'+esc(p.name)+'</h3>'
+    +'<div class="prod-meta">Sizes: '+p.sizes.join(', ')+' &nbsp;<span class="dots">'+p.colours.map(function(c){return '<i style="background:'+c.hex+'"></i>';}).join('')+'</span></div>'
+    +'<div class="prod-row"><span class="price">'+fmt(p.price)+'<small>Demo price</small></span>'
+    +'<span style="display:flex;gap:.4rem"><button class="enq-btn" style="background:var(--surface2);color:var(--ink);box-shadow:none;border:1.5px solid var(--line)" onclick="openQV(\''+p.id+'\')">Quick View</button><button class="enq-btn" onclick="openEnquiry(\''+p.id+'\')"'+dis+'>Order</button></span></div>'
+    +'<button class="add-cart-btn" onclick="addToCart(\''+p.id+'\')"'+dis+'>🛒 Add to Cart</button></div></article>';
+  }).join('') : '<p style="color:var(--muted);font-weight:700">No pairs match — try another search or category, or add products from the Admin Panel.</p>';
+}
+
+/* ================= TRY-ON STUDIO ================= */
+var tryCat='sports', trySel=null, orbitAngle=0, orbitPaused=false, orbitCards=[];
+function renderStudioTabs(){
+  document.getElementById('studioTabs').innerHTML = Object.keys(CATS).map(function(k){
+    return '<button class="stab'+(tryCat===k?' active':'')+'" style="'+(tryCat===k?'background:'+CATS[k].accent+';':'')+'" onclick="switchTryCat(\''+k+'\')">'+CATS[k].icon+' '+CATS[k].label+'</button>';
+  }).join('');
+}
+function switchTryCat(k){
+  if(k===tryCat) return;
+  var stage=document.getElementById('stage');
+  stage.classList.add('switching');
+  setTimeout(function(){
+    tryCat=k; trySel=null; renderStudioTabs(); buildOrbit();
+    stage.classList.remove('switching');
+  }, reduced? 30 : 400);
+}
+function buildOrbit(){
+  var list=state.products.filter(function(p){return p.cat===tryCat;});
+  var orbit=document.getElementById('orbit');
+  if(!list.length){ orbit.innerHTML='<p style="text-align:center;color:var(--muted);font-weight:700;padding-top:180px">No shoes in this category yet.</p>'; orbitCards=[]; document.getElementById('tray').innerHTML='<span style="font-weight:700;color:var(--muted)">Add products from the Admin Panel to try them on.</span>'; return; }
+  orbit.innerHTML=list.map(function(p){
+    return '<button class="ocard" data-id="'+p.id+'" onclick="selectShoe(\''+p.id+'\',true)"><img src="'+esc(p.img)+'" alt="'+esc(p.name)+'"><b>'+esc(p.name)+'</b><span>'+fmt(p.price)+'</span><span class="try">Try On 👟</span></button>';
+  }).join('');
+  orbitCards=Array.prototype.slice.call(orbit.querySelectorAll('.ocard'));
+  orbit.onmouseenter=function(){orbitPaused=true;}; orbit.onmouseleave=function(){orbitPaused=false;};
+  orbit.ontouchstart=function(){orbitPaused=true;}; orbit.ontouchend=function(){setTimeout(function(){orbitPaused=false;},2500);};
+  selectShoe(list[0].id,false);
+  positionOrbit();
+}
+function positionOrbit(){
+  var stage=document.getElementById('stage'); if(!stage||!orbitCards.length) return;
+  var sw=stage.clientWidth;
+  var rx= sw<=560 ? Math.max(96, sw/2-56) : Math.max(120, Math.min(sw/2-86, 430));
+  orbitCards.forEach(function(card,i){
+    var a=orbitAngle + i*(Math.PI*2/orbitCards.length);
+    var x=Math.sin(a)*rx, z=Math.cos(a);
+    var s=.68+.4*((z+1)/2), o=.3+.7*((z+1)/2);
+    card.style.transform='translate(-50%,-50%) translateX('+x+'px) translateY('+(z*-14)+'px) scale('+s+')';
+    card.style.opacity=o; card.style.zIndex=Math.round(z*10)+20;
+    card.style.pointerEvents='auto';
+  });
+}
+var orbitHoldUntil=0;
+document.getElementById('studio').addEventListener('pointerdown',function(){ orbitHoldUntil=Date.now()+4000; });
+(function orbitLoop(){ if(!reduced && !orbitPaused && Date.now()>orbitHoldUntil && orbitCards.length>1){ orbitAngle+=0.0022; positionOrbit(); } requestAnimationFrame(orbitLoop); })();
+function selectShoe(id,scroll){
+  var p=byId(id); if(!p) return; trySel=id;
+  document.getElementById('wornImg').src=p.img;
+  document.getElementById('wornName').textContent=p.name;
+  orbitCards.forEach(function(c){ c.classList.toggle('sel', c.getAttribute('data-id')===id); });
+  renderTray(p, p.colours[0]);
+}
+function renderTray(p, colour){
+  document.getElementById('tray').innerHTML =
+    '<span class="chip">'+CATS[p.cat].icon+' '+CATS[p.cat].label+'</span>'
+    +'<img src="'+esc(p.img)+'" alt="">'
+    +'<span><span class="tname">'+esc(p.name)+'</span><br><span class="tprice">'+fmt(p.price)+' · demo</span></span>'
+    +'<span style="display:inline-flex;gap:.45rem;align-items:center"><span style="font-size:.78rem;font-weight:800;color:var(--muted)">'+(colour?esc(colour.name):'')+'</span>'
+    + p.colours.map(function(c){ return '<button class="swatch'+(colour&&c.hex===colour.hex?' on':'')+'" style="background:'+c.hex+'" title="'+esc(c.name)+'" onclick="renderTray(byId(\''+p.id+'\'),{name:\''+esc(c.name)+'\',hex:\''+c.hex+'\'})" aria-label="'+esc(c.name)+'"></button>'; }).join('')+'</span>'
+    +'<button class="btn btn-grad" style="margin-left:auto;padding:.6rem 1.2rem;min-height:44px" onclick="openEnquiry(\''+p.id+'\')">Order</button>';
+}
+</script>
+
+<script>
+/* ================= 1) DRAG-TO-ORBIT WHEEL ================= */
+var wheelItems=[], wheelRot=0, wheelTarget=null, wheelFront=-1, wheelSelSize=null;
+function wheelList(){ var l=state.products.slice(0,6); if(state.products.length>12){ var last=state.products[state.products.length-1]; if(l.indexOf(last)===-1 && l.length) l[l.length-1]=last; } return l; }
+function buildWheel(){
+  var stage=document.getElementById('wfStage');
+  stage.querySelectorAll('.wf-item').forEach(function(el){el.remove();});
+  wheelItems = wheelList().map(function(p,i){
+    var d=document.createElement('div'); d.className='wf-item'; d.setAttribute('role','button'); d.setAttribute('tabindex','0');
+    d.innerHTML='<img src="'+esc(p.img)+'" alt="'+esc(p.name)+'"><b>'+esc(p.name)+'</b>';
+    d.addEventListener('click',function(){ if(wheelMoved>6) return; if(i===wheelFront){ openQV(p.id); } else { bringToFront(i); } });
+    d.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); d.click(); } });
+    stage.appendChild(d); return d;
+  });
+  document.getElementById('wfThumbs').innerHTML = wheelList().map(function(p,i){
+    return '<button data-i="'+i+'" onclick="bringToFront('+i+')" aria-label="Show '+esc(p.name)+'"><img src="'+esc(p.img)+'" alt=""></button>';
+  }).join('');
+  wheelFront=-1; positionWheel(true);
+}
+function bringToFront(i){
+  var step=Math.PI*2/Math.max(1,wheelItems.length);
+  var twoPi=Math.PI*2;
+  var desired=-i*step; /* rotation where item i sits at the front */
+  var k=Math.round((wheelRot-desired)/twoPi);
+  wheelTarget=desired + k*twoPi;
+}
+function positionWheel(force){
+  var stage=document.getElementById('wfStage'); if(!stage||!wheelItems.length) return;
+  var rx=Math.max(105, Math.min(stage.clientWidth/2-80, 400));
+  var n=wheelItems.length, step=Math.PI*2/n, front=-1, frontZ=-2;
+  wheelItems.forEach(function(el,i){
+    var a=wheelRot + i*step, x=Math.sin(a)*rx, z=Math.cos(a);
+    var s=.62+.5*((z+1)/2), o=.28+.72*((z+1)/2);
+    el.style.transform='translateX('+x+'px) translateY('+(z*-20)+'px) scale('+s+')';
+    el.style.opacity=o; el.style.zIndex=Math.round(z*10)+20; el.style.filter= z<0? 'saturate(.6)':'none';
+    if(z>frontZ){frontZ=z; front=i;}
+  });
+  if(front>=0 && (force||front!==wheelFront)){ wheelFront=front; updateWheelInfo(); }
+}
+function updateWheelInfo(){
+  var list=wheelList(), p=list[wheelFront]; if(!p) return;
+  document.getElementById('wfCat').textContent=CATS[p.cat].label+' · Demo price';
+  document.getElementById('wfName').textContent=p.name;
+  document.getElementById('wfPrice').textContent=fmt(p.price);
+  wheelSelSize = p.sizes[Math.min(3,p.sizes.length-1)];
+  document.getElementById('wfSizes').innerHTML=p.sizes.map(function(s){ return '<button class="wf-size'+(s===wheelSelSize?' on':'')+'" onclick="wheelSelSize=\''+s+'\';updateWheelInfoSizes(\''+p.id+'\')">'+s+'</button>'; }).join('');
+  document.getElementById('wfCounter').innerHTML=String(wheelFront+1).padStart(2,'0')+' <span>/ '+String(list.length).padStart(2,'0')+'</span>';
+  document.querySelectorAll('#wfThumbs button').forEach(function(b){ b.classList.toggle('on', Number(b.getAttribute('data-i'))===wheelFront); });
+  document.getElementById('wfQuickBtn').onclick=function(){ openQV(p.id); };
+  document.getElementById('wfOrderBtn').onclick=function(){ openEnquiry(p.id, wheelSelSize); };
+}
+function updateWheelInfoSizes(pid){ var p=byId(pid); if(!p) return; document.getElementById('wfSizes').innerHTML=p.sizes.map(function(s){ return '<button class="wf-size'+(s===wheelSelSize?' on':'')+'" onclick="wheelSelSize=\''+s+'\';updateWheelInfoSizes(\''+p.id+'\')">'+s+'</button>'; }).join(''); }
+var wheelDrag=false, wheelStartX=0, wheelStartRot=0, wheelMoved=0;
+(function(){
+  var stage=document.getElementById('wfStage');
+  stage.addEventListener('pointerdown',function(e){ wheelDrag=true; wheelMoved=0; wheelStartX=e.clientX; wheelStartRot=wheelRot; wheelTarget=null; });
+  window.addEventListener('pointermove',function(e){ if(!wheelDrag) return; var dx=e.clientX-wheelStartX; wheelMoved=Math.max(wheelMoved,Math.abs(dx)); wheelRot=wheelStartRot + dx/160; positionWheel(false); });
+  window.addEventListener('pointerup',function(){ wheelDrag=false; });
+  window.addEventListener('pointercancel',function(){ wheelDrag=false; });
+})();
+(function wheelLoop(){
+  if(wheelTarget!==null && !wheelDrag){ var d=wheelTarget-wheelRot; wheelRot+=d*0.12; if(Math.abs(d)<0.002){ wheelRot=wheelTarget; wheelTarget=null; } positionWheel(false); }
+  else if(!reduced && !wheelDrag && wheelItems.length>1){ wheelRot+=0.0016; positionWheel(false); }
+  requestAnimationFrame(wheelLoop);
+})();
+
+/* ================= 2) CURVED RAIL — auto-drift + drag ================= */
+var railActive=null, railOffset=0, railHW=75, railHoldUntil=0, railFocusHold=false, railHoverHold=false;
+var railDrag=null, railSuppressClick=false;
+function railList(){ var n=state.products.length; if(n<=6) return state.products.slice(); var l=state.products.slice(6,12).concat(state.products.slice(0, Math.max(0, 6-(n-6)))).slice(0,6); if(n>12){ var last=state.products[n-1]; if(l.indexOf(last)===-1 && l.length) l[l.length-1]=last; } return l; }
+function buildRail(){
+  var wrap=document.getElementById('wfRail');
+  wrap.querySelectorAll('.wf-ritem').forEach(function(el){el.remove();});
+  var list=railList();
+  list.forEach(function(p){
+    var d=document.createElement('div'); d.className='wf-ritem'; d.setAttribute('data-id',p.id); d.setAttribute('role','button'); d.setAttribute('tabindex','0'); d.setAttribute('aria-label',p.name+' — tap to spotlight, again for quick view');
+    d.innerHTML='<img src="'+esc(p.img)+'" alt="'+esc(p.name)+'"><b>'+esc(p.name)+'</b>';
+    d.addEventListener('pointerenter',function(e){ if(e.pointerType && e.pointerType!=='mouse' && e.pointerType!=='pen') return; setRailActive(p.id); });
+    d.addEventListener('click',function(){ if(railActive!==p.id){ setRailActive(p.id); } else { openQV(p.id); } });
+    d.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); d.click(); } });
+    wrap.appendChild(d);
+  });
+  var first=wrap.querySelector('.wf-ritem'); if(first) railHW=first.offsetWidth/2;
+  positionRail();
+  if(list.length) setRailActive(list[Math.floor(list.length/2)].id);
+}
+function railPoint(t,W,H){ var x0=railHW+6, x1=W-railHW-6, cx=W/2; var x=(1-t)*(1-t)*x0 + 2*(1-t)*t*cx + t*t*x1; var y=(1-t)*(1-t)*(H-56) + 2*(1-t)*t*(-26) + t*t*(H-56); return {x:x,y:y}; }
+function positionRail(){
+  var wrap=document.getElementById('wfRail'); if(!wrap) return;
+  var items=wrap.querySelectorAll('.wf-ritem'); if(!items.length) return;
+  var W=wrap.clientWidth, H=wrap.clientHeight, n=items.length;
+  items.forEach(function(el,i){
+    var base= n===1? .5 : i/(n-1);
+    var t= base + railOffset; t= t - Math.floor(t);
+    var pt=railPoint(t,W,H);
+    el.style.left=pt.x+'px'; el.style.top=pt.y+'px';
+  });
+}
+function setRailActive(id){
+  railActive=id; var p=byId(id); if(!p) return;
+  var wrap=document.getElementById('wfRail');
+  wrap.classList.add('has-active');
+  wrap.querySelectorAll('.wf-ritem').forEach(function(el){ el.classList.toggle('active', el.getAttribute('data-id')===id); });
+  document.getElementById('railCat').textContent=CATS[p.cat].label;
+  document.getElementById('railName').textContent=p.name;
+  document.getElementById('railDesc').textContent=desc(p);
+  document.getElementById('railPrice').textContent=fmt(p.price);
+  document.getElementById('railQuickBtn').onclick=function(){ openQV(id); };
+}
+/* rail auto-drift: gentle continuous travel along the curve, cards wrap around */
+var railLastTs=0;
+(function railLoop(ts){
+  requestAnimationFrame(railLoop);
+  if(!ts) return;
+  var dt= railLastTs? Math.min(64, ts-railLastTs) : 16; railLastTs=ts;
+  if(reduced || railDrag || railFocusHold || railHoverHold) return;
+  if(Date.now()<railHoldUntil) return;
+  var wrap=document.getElementById('wfRail'); if(!wrap || !wrap.querySelector('.wf-ritem')) return;
+  railOffset += dt/65000; if(railOffset>=1) railOffset-=1;
+  positionRail();
+})();
+/* rail drag/swipe: only clearly horizontal drags are claimed, so vertical page scroll still works */
+(function(){
+  var wrap=document.getElementById('wfRail'); if(!wrap) return;
+  wrap.addEventListener('pointerdown',function(e){
+    railDrag={x:e.clientX, y:e.clientY, off:railOffset, moved:0, active:false};
+    railHoldUntil=Date.now()+4000;
+  });
+  wrap.addEventListener('pointerenter',function(e){ if(e.pointerType==='mouse'||e.pointerType==='pen') railHoverHold=true; });
+  wrap.addEventListener('pointerleave',function(){ railHoverHold=false; railHoldUntil=Date.now()+2500; });
+  window.addEventListener('pointermove',function(e){
+    if(!railDrag) return;
+    var dx=e.clientX-railDrag.x, dy=e.clientY-railDrag.y;
+    if(!railDrag.active){
+      if(Math.abs(dy)>10 && Math.abs(dy)>Math.abs(dx)){ railDrag=null; return; }
+      if(Math.abs(dx)>7) railDrag.active=true; else return;
+    }
+    railDrag.moved=Math.max(railDrag.moved, Math.abs(dx));
+    var W=wrap.clientWidth||1;
+    railOffset= railDrag.off + dx/W; railOffset= railOffset - Math.floor(railOffset);
+    positionRail();
+  });
+  function endRailDrag(){ if(railDrag && railDrag.moved>8) railSuppressClick=true; railDrag=null; railHoldUntil=Date.now()+3500; }
+  window.addEventListener('pointerup',endRailDrag);
+  window.addEventListener('pointercancel',endRailDrag);
+  wrap.addEventListener('click',function(e){ if(railSuppressClick){ railSuppressClick=false; e.stopPropagation(); e.preventDefault(); } },true);
+  wrap.addEventListener('focusin',function(){ railFocusHold=true; });
+  wrap.addEventListener('focusout',function(){ railFocusHold=false; railHoldUntil=Date.now()+3000; });
+})();
+
+/* ================= 3) SHUFFLE GRID — TRY THE LOOK ================= */
+var LOOK_DEFS=[
+  {name:'Match Day', desc:'Game-day energy: a statement runner, a court classic and a slide for the ride home.'},
+  {name:'Office Classic', desc:'Sharp leather for the day, an easy sandal for the evening, comfort waiting at home.'},
+  {name:'Friday Comfort', desc:'Laid-back Friday: chunky street style, open sandals and soft home comfort.'},
+  {name:'School Ready', desc:'Term-proof whites for school days, with sporty back-ups for games period.'},
+  {name:'Evening Walk', desc:'Mandian evenings done right — breathable pairs for a stroll and a relaxed finish.'},
+  {name:'Weekend Chill', desc:'Bazaar runs, chai stops and zero effort: the full weekend rotation in one look.'}
+];
+var lookOrder=[0,1,2,3,4,5], currentLook=null, lookIncluded={};
+function lookPieces(defIdx){
+  var n=state.products.length; if(!n) return [];
+  var idx=[defIdx % n, (defIdx+4) % n, (defIdx+7) % n];
+  if(defIdx===5 && n>13) idx[2]=n-1; /* keep the newest added pair inside a look */
+  var seen={}, out=[];
+  idx.forEach(function(i){ if(!seen[state.products[i].id]){ seen[state.products[i].id]=1; out.push(state.products[i]); } });
+  return out;
+}
+function buildLooks(){
+  var grid=document.getElementById('looksGrid');
+  grid.innerHTML=lookOrder.map(function(defIdx,pos){
+    var def=LOOK_DEFS[defIdx], pieces=lookPieces(defIdx);
+    if(!pieces.length) return '';
+    var total=pieces.reduce(function(s,p){return s+p.price;},0);
+    var mid = (pos%3===1) ? ' mid':'';
+    var sel = (defIdx===currentLook) ? ' sel':'';
+    return '<button class="look-card'+mid+sel+'" data-def="'+defIdx+'" onclick="openLook('+defIdx+')"><span class="limg"><img src="'+esc(pieces[0].img)+'" alt="'+esc(def.name)+' look"><span class="look-minis">'+pieces.slice(1).map(function(p){return '<img src="'+esc(p.img)+'" alt="">';}).join('')+'</span></span><span class="look-body"><span class="wf-name">'+def.name+'</span><span class="look-total" style="display:block">'+fmt(total)+' <span>· '+pieces.length+' pairs</span></span></span></button>';
+  }).join('');
+}
+document.getElementById('shuffleBtn').addEventListener('click',function(){
+  var grid=document.getElementById('looksGrid');
+  var first={};
+  Array.prototype.forEach.call(grid.children,function(c){ first[c.getAttribute('data-def')]=c.getBoundingClientRect(); });
+  for(var i=lookOrder.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=lookOrder[i]; lookOrder[i]=lookOrder[j]; lookOrder[j]=t; }
+  buildLooks();
+  if(!reduced){
+    /* FLIP: cards visibly glide from their old spots to their new ones */
+    Array.prototype.forEach.call(grid.children,function(c){
+      var f=first[c.getAttribute('data-def')]; if(!f) return;
+      var l=c.getBoundingClientRect(), dx=f.left-l.left, dy=f.top-l.top;
+      if(!dx && !dy) return;
+      c.style.transition='none'; c.style.transform='translate('+dx+'px,'+dy+'px)';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        c.style.transition='transform .6s cubic-bezier(.22,.8,.3,1)'; c.style.transform='';
+        setTimeout(function(){ c.style.transition=''; },680);
+      }); });
+    });
+  }
+  toast('Looks shuffled 🔀');
+});
+function openLook(defIdx){
+  currentLook=defIdx; var def=LOOK_DEFS[defIdx], pieces=lookPieces(defIdx);
+  lookIncluded={}; pieces.forEach(function(p){ lookIncluded[p.id]=true; });
+  document.querySelectorAll('.look-card').forEach(function(c){ c.classList.toggle('sel', Number(c.getAttribute('data-def'))===defIdx); });
+  var selCard=document.querySelector('.look-card[data-def="'+defIdx+'"]');
+  if(selCard) selCard.scrollIntoView({block:'nearest', behavior: reduced?'auto':'smooth'});
+  document.getElementById('lkImg').src=pieces[0]? pieces[0].img : '';
+  document.getElementById('lkName').textContent=def.name;
+  document.getElementById('lkDesc').textContent=def.desc;
+  renderLookPieces();
+  document.getElementById('lookModal').classList.add('open');
+  document.getElementById('lkOrderBtn').onclick=function(){ orderLook(); };
+}
+function renderLookPieces(){
+  var pieces=lookPieces(currentLook);
+  document.getElementById('lkPieces').innerHTML=pieces.map(function(p){
+    var on=!!lookIncluded[p.id];
+    return '<div class="qv-piece"><img src="'+esc(p.img)+'" alt=""><div class="grow"><b>'+esc(p.name)+'</b><span>'+CATS[p.cat].label+' · '+fmt(p.price)+'</span></div><button class="add-btn'+(on?' added':'')+'" onclick="togglePiece(\''+p.id+'\')">'+(on?'Added ✓':'+ Add')+'</button></div>';
+  }).join('');
+  var total=pieces.filter(function(p){return lookIncluded[p.id];}).reduce(function(s,p){return s+p.price;},0);
+  document.getElementById('lkTotal').textContent=fmt(total);
+}
+function togglePiece(id){ lookIncluded[id]=!lookIncluded[id]; renderLookPieces(); }
+function orderLook(){
+  var pieces=lookPieces(currentLook).filter(function(p){return lookIncluded[p.id];});
+  if(!pieces.length){ toast('Add at least one pair to the look first'); return; }
+  pieces.forEach(function(p){ addToCart(p.id, null, null, 1, true); });
+  closeLook();
+  openCart();
+  toast('Look added to your cart — one combined order at checkout 🛒');
+}
+function closeLook(){ document.getElementById('lookModal').classList.remove('open'); }
+
+/* ================= QUICK VIEW ================= */
+var qvId=null, qvSize=null, qvColour=null;
+function openQV(id){
+  var p=byId(id); if(!p) return; qvId=id; qvSize=p.sizes[Math.min(3,p.sizes.length-1)]; qvColour=p.colours[0];
+  document.getElementById('qvImg').src=p.img;
+  document.getElementById('qvCat').textContent=CATS[p.cat].label+' · Zee Shoes Demo';
+  document.getElementById('qvName').textContent=p.name;
+  document.getElementById('qvDesc').textContent=desc(p);
+  document.getElementById('qvPrice').textContent=fmt(p.price)+' · demo price';
+  renderQVSizes(); renderQVColours();
+  document.getElementById('qvBadges').innerHTML = p.soldout? '<span class="pbadge sold" style="position:static;display:inline-block">Sold Out</span>' : (p.preorder? '<span class="pbadge pre" style="position:static;display:inline-block">Pre-Order'+(p.preNote?' · '+esc(p.preNote):'')+'</span>' : '');
+  document.getElementById('qvOrderBtn').disabled=!!p.soldout;
+  document.getElementById('qvOrderBtn').textContent= p.soldout? 'Sold Out' : 'Order This Pair';
+  document.getElementById('qvOrderBtn').onclick=function(){ closeQV(); openEnquiry(id, qvSize); };
+  document.getElementById('qvCartBtn').disabled=!!p.soldout;
+  document.getElementById('qvCartBtn').onclick=function(){ addToCart(id, qvSize, qvColour? qvColour.name:''); };
+  renderQVRelated(p);
+  document.getElementById('wfRail').classList.add('faded');
+  document.getElementById('qvModal').classList.add('open');
+}
+function renderQVRelated(p){
+  var rel=state.products.filter(function(x){ return x.cat===p.cat && x.id!==p.id; }).slice(0,3);
+  document.getElementById('qvRelated').innerHTML= rel.length? rel.map(function(x){
+    return '<div class="qv-piece"><img src="'+esc(x.img)+'" alt=""><div class="grow"><b>'+esc(x.name)+'</b><span>'+fmt(x.price)+(x.soldout?' · Sold Out':(x.preorder?' · Pre-Order':''))+'</span></div><button class="add-btn" onclick="openQV(\''+x.id+'\')">View</button><button class="add-btn" '+(x.soldout?'disabled':'')+' onclick="addToCart(\''+x.id+'\')">+ Cart</button></div>';
+  }).join('') : '<p style="color:var(--muted);font-weight:600">No other pairs in this category yet.</p>';
+}
+function renderQVSizes(){ var p=byId(qvId); document.getElementById('qvSizes').innerHTML=p.sizes.map(function(s){ return '<button class="wf-size'+(s===qvSize?' on':'')+'" onclick="qvSize=\''+s+'\';renderQVSizes()">'+s+'</button>'; }).join(''); }
+function renderQVColours(){ var p=byId(qvId); document.getElementById('qvColours').innerHTML=p.colours.map(function(c){ return '<button class="wf-swatch'+(qvColour&&c.hex===qvColour.hex?' on':'')+'" style="background:'+c.hex+'" title="'+esc(c.name)+'" aria-label="'+esc(c.name)+'" onclick="qvColour={name:\''+esc(c.name)+'\',hex:\''+c.hex+'\'};renderQVColours()"></button>'; }).join('')+'<span style="align-self:center;font-weight:700;color:var(--muted);font-size:.86rem">'+(qvColour?esc(qvColour.name):'')+'</span>'; }
+function closeQV(){ document.getElementById('qvModal').classList.remove('open'); document.getElementById('wfRail').classList.remove('faded'); }
+
+/* ================= CART ================= */
+function addToCart(pid, size, colour, qty, silent){
+  var p=byId(pid); if(!p||p.soldout) return;
+  size=size||p.sizes[Math.min(3,p.sizes.length-1)];
+  colour=colour||(p.colours[0]?p.colours[0].name:'');
+  qty=qty||1;
+  var found=null;
+  state.cart.forEach(function(it){ if(it.pid===pid && it.size===size && it.colour===colour) found=it; });
+  if(found) found.qty+=qty; else state.cart.push({pid:pid, name:p.name, img:p.img, size:size, colour:colour, price:p.price, qty:qty});
+  save(); updateCartBadge(); renderCart();
+  if(!silent) toast('Added to cart 🛒 — '+p.name);
+}
+function cartQtyTotal(){ return state.cart.reduce(function(s,it){return s+it.qty;},0); }
+function cartTotal(){ return state.cart.reduce(function(s,it){return s+it.qty*it.price;},0); }
+function updateCartBadge(){ var b=document.getElementById('cartCount'); if(b) b.textContent=cartQtyTotal(); }
+function renderCart(){
+  var body=document.getElementById('cartBody'); if(!body) return;
+  if(!state.cart.length){ body.innerHTML='<p style="color:var(--muted);font-weight:700;padding:1rem 0">Your cart is empty — add a pair you like.</p>'; }
+  else body.innerHTML=state.cart.map(function(it,i){
+    return '<div class="cart-line"><img src="'+esc(it.img)+'" alt=""><div style="flex:1;min-width:0"><b style="display:block;font-size:.92rem">'+esc(it.name)+'</b><span style="font-size:.8rem;color:var(--muted);font-weight:700">Size '+esc(it.size)+(it.colour?' · '+esc(it.colour):'')+' · '+fmt(it.price)+'</span><div style="display:flex;align-items:center;gap:.5rem;margin-top:.35rem"><button class="qty-btn" onclick="cartQty('+i+',-1)" aria-label="Decrease quantity">−</button><b>'+it.qty+'</b><button class="qty-btn" onclick="cartQty('+i+',1)" aria-label="Increase quantity">+</button></div></div><div style="text-align:right"><b>'+fmt(it.price*it.qty)+'</b><br><button class="mini-btn danger" style="padding:.3rem .7rem;min-height:36px;margin-top:.3rem" onclick="cartRemove('+i+')">Remove</button></div></div>';
+  }).join('');
+  document.getElementById('cartTotal').textContent=fmt(cartTotal());
+  document.getElementById('cartCheckoutBtn').disabled=!state.cart.length;
+}
+function cartQty(i,d){ var it=state.cart[i]; if(!it) return; it.qty+=d; if(it.qty<1) state.cart.splice(i,1); save(); updateCartBadge(); renderCart(); }
+function cartRemove(i){ state.cart.splice(i,1); save(); updateCartBadge(); renderCart(); }
+function openCart(){ renderCart(); document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartVeil').classList.add('open'); }
+function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartVeil').classList.remove('open'); }
+function checkoutCart(){
+  if(!state.cart.length) return;
+  closeCart();
+  orderCtx={ fromCart:true, items: state.cart.map(function(it){ return {pid:it.pid, name:it.name, img:it.img, size:it.size, colour:it.colour, qty:it.qty, price:it.price}; }) };
+  showOrderForm();
+}
+
+/* ================= ORDER FORM ================= */
+var orderCtx=null;
+function openEnquiry(id, size){
+  var p=byId(id); if(!p||p.soldout) return;
+  orderCtx={ fromCart:false, items:[{pid:p.id, name:p.name, img:p.img, size:size||p.sizes[Math.min(3,p.sizes.length-1)], colour:p.colours[0]?p.colours[0].name:'', qty:1, price:p.price}] };
+  showOrderForm();
+}
+function delFee(area){ var d=state.settings.delivery; return area==='nat'? d.natFee : d.cityFee; }
+function delTime(area){ var d=state.settings.delivery; return area==='nat'? d.natTime : d.cityTime; }
+function showOrderForm(){
+  document.getElementById('enqFormWrap').classList.remove('hidden');
+  document.getElementById('enqDone').classList.add('hidden');
+  renderOrdItems(); renderOrdArea(); renderOrdTotals(); renderPayInfo();
+  document.getElementById('enqModal').classList.add('open');
+}
+function renderOrdItems(){
+  var w=document.getElementById('ordItems'); if(!orderCtx){ w.innerHTML=''; return; }
+  if(orderCtx.fromCart){
+    w.innerHTML='<span class="wf-label" style="display:block;margin-bottom:.2rem">Your order</span>'+orderCtx.items.map(function(it){
+      return '<div class="ord-line"><img src="'+esc(it.img)+'" alt=""><div style="flex:1;min-width:0"><b style="display:block;font-size:.92rem">'+esc(it.name)+'</b><span style="font-size:.8rem;color:var(--muted);font-weight:700">Size '+esc(it.size)+(it.colour?' · '+esc(it.colour):'')+' · ×'+it.qty+'</span></div><b>'+fmt(it.price*it.qty)+'</b></div>';
+    }).join('')+'<p style="color:var(--muted);font-weight:600;font-size:.82rem;margin:.4rem 0 0">Quantities can be changed in the cart before checkout.</p>';
+    return;
+  }
+  var it=orderCtx.items[0], p=byId(it.pid);
+  var pre= p&&p.preorder? '<span class="pbadge pre" style="position:static;display:inline-block;margin-left:.4rem">Pre-Order'+(p.preNote?' · '+esc(p.preNote):'')+'</span>' : '';
+  w.innerHTML='<span class="wf-label" style="display:block;margin-bottom:.2rem">Your order</span>'
+    +'<div class="ord-line"><img src="'+esc(it.img)+'" alt=""><div style="flex:1;min-width:0"><b style="font-size:.95rem">'+esc(it.name)+'</b>'+pre+'<div style="font-size:.82rem;color:var(--muted);font-weight:700">'+fmt(it.price)+' · demo price</div></div></div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.6rem">'
+    +'<div class="field" style="margin:0"><label>Size</label><select id="ordSize">'+(p? p.sizes : [it.size]).map(function(s){ return '<option'+(s===it.size?' selected':'')+'>'+esc(s)+'</option>'; }).join('')+'</select></div>'
+    +'<div class="field" style="margin:0"><label>Colour</label><select id="ordColour">'+(p? p.colours.map(function(c){return c.name;}) : [it.colour]).map(function(cn){ return '<option'+(cn===it.colour?' selected':'')+'>'+esc(cn)+'</option>'; }).join('')+'</select></div>'
+    +'</div>'
+    +'<div class="field" style="margin-top:.7rem"><label>Quantity</label><div style="display:flex;align-items:center;gap:.6rem"><button type="button" class="qty-btn" onclick="ordQty(-1)" aria-label="Decrease quantity">−</button><b id="ordQtyVal">'+it.qty+'</b><button type="button" class="qty-btn" onclick="ordQty(1)" aria-label="Increase quantity">+</button></div></div>';
+  var sz=document.getElementById('ordSize'), cl=document.getElementById('ordColour');
+  if(sz) sz.onchange=function(){ it.size=sz.value; };
+  if(cl) cl.onchange=function(){ it.colour=cl.value; };
+}
+function ordQty(d){ if(!orderCtx||orderCtx.fromCart) return; var it=orderCtx.items[0]; it.qty=Math.max(1,it.qty+d); document.getElementById('ordQtyVal').textContent=it.qty; renderOrdTotals(); }
+function renderOrdArea(){
+  var d=state.settings.delivery, sel=document.getElementById('ordArea');
+  sel.innerHTML='<option value="city">Abbottabad city — '+fmt(d.cityFee)+' · '+esc(d.cityTime)+'</option><option value="nat">Nationwide — '+fmt(d.natFee)+' · '+esc(d.natTime)+'</option>';
+  sel.onchange=function(){ renderOrdTotals(); };
+}
+function ordSubtotal(){ return orderCtx? orderCtx.items.reduce(function(s,it){return s+it.price*it.qty;},0) : 0; }
+function renderOrdTotals(){
+  var area=document.getElementById('ordArea').value||'city';
+  var sub=ordSubtotal(), fee=delFee(area);
+  document.getElementById('ordTotals').innerHTML='<div><span>Subtotal</span><span>'+fmt(sub)+'</span></div><div><span>Delivery ('+(area==='nat'?'Nationwide':'Abbottabad city')+')</span><span>'+fmt(fee)+'</span></div><div class="grand"><span>Total</span><span>'+fmt(sub+fee)+'</span></div>';
+  document.getElementById('ordDelLine').textContent='Delivery: '+(area==='nat'? 'Nationwide '+fmt(delFee('nat'))+' · '+delTime('nat') : 'Abbottabad city '+fmt(delFee('city'))+' · '+delTime('city'));
+}
+function renderPayInfo(){
+  var m=document.querySelector('input[name="paym"]:checked'); var v=m? m.value : 'Cash on Delivery';
+  var pay=state.settings.pay, txt='';
+  if(v==='JazzCash' && pay.jazz) txt='JazzCash account: '+pay.jazz+' — send your payment there and keep the receipt.';
+  else if(v==='Easypaisa' && pay.easy) txt='Easypaisa account: '+pay.easy+' — send your payment there and keep the receipt.';
+  else if(v==='Cash on Delivery') txt='Pay in cash when your order arrives.';
+  else txt='Pay by '+v+' — the shop confirms the account details with your order.';
+  document.getElementById('payInfo').textContent=txt;
+}
+document.querySelectorAll('input[name="paym"]').forEach(function(r){ r.addEventListener('change',renderPayInfo); });
+function closeModal(){ document.getElementById('enqModal').classList.remove('open'); }
+document.getElementById('enqForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!orderCtx||!orderCtx.items.length){ toast('Your order is empty'); return; }
+  var name=document.getElementById('enqName').value.trim();
+  var phone=document.getElementById('enqPhone').value.trim();
+  var addr=document.getElementById('enqCity').value.trim();
+  if(!name||!phone||!addr){ toast('Please add your name, mobile number and address'); return; }
+  var area=document.getElementById('ordArea').value||'city';
+  var payEl=document.querySelector('input[name="paym"]:checked');
+  var sub=ordSubtotal(), fee=delFee(area);
+  var hasPre=false, preNote='';
+  orderCtx.items.forEach(function(it){ var p=byId(it.pid); if(p&&p.preorder){ hasPre=true; if(p.preNote) preNote=p.preNote; } });
+  state.orderSeq+=1;
+  var order={ id:state.orderSeq, date:new Date().toISOString(), customer:name, phone:phone, address:addr,
+    items:orderCtx.items.map(function(it){ return {pid:it.pid, name:it.name, img:it.img, size:it.size, colour:it.colour, qty:it.qty, price:it.price}; }),
+    qty:orderCtx.items.reduce(function(s,it){return s+it.qty;},0),
+    subtotal:sub, deliveryFee:fee, area:area, total:sub+fee,
+    payment:payEl? payEl.value : 'Cash on Delivery', note:document.getElementById('enqMsg').value.trim(),
+    status:'New', preorder:hasPre, preNote:preNote };
+  state.orders.unshift(order);
+  if(orderCtx.fromCart){ state.cart=[]; updateCartBadge(); renderCart(); }
+  save();
+  if(window.renderOrders) renderOrders();
+  showOrderDone(order);
+});
+function showOrderDone(order){
+  document.getElementById('enqFormWrap').classList.add('hidden');
+  var d=document.getElementById('enqDone'); d.classList.remove('hidden');
+  var lines=order.items.map(function(it){ return esc(it.name)+' — Size '+esc(it.size)+(it.colour?' · '+esc(it.colour):'')+' ×'+it.qty+' · '+fmt(it.price*it.qty); }).join('<br>');
+  d.innerHTML='<div style="font-size:2.6rem">✅</div><h3>Order saved!</h3>'
+    +(order.preorder? '<p><span class="pbadge pre" style="position:static;display:inline-block">PRE-ORDER'+(order.preNote?' · '+esc(order.preNote):'')+'</span></p>' : '')
+    +'<p style="color:var(--ink2);line-height:1.65">Thank you, <b>'+esc(order.customer)+'</b>. Your order <b>#'+order.id+'</b> is saved with Zee Shoes.<br>'+lines+'<br>Delivery: '+fmt(order.deliveryFee)+' ('+(order.area==='nat'?'Nationwide':'Abbottabad city')+', '+esc(delTime(order.area))+')<br><b>Total: '+fmt(order.total)+'</b> · '+esc(order.payment)+'</p>'
+    +'<p style="color:var(--muted);font-weight:600">Track it any time with your Order ID or mobile number in the Track Order section below.</p>'
+    +'<div style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:.6rem"><button class="btn btn-grad" onclick="trackPlacedOrder('+order.id+')">Track My Order</button><button class="btn btn-ghost" onclick="closeModal()">Done</button></div>';
+}
+function trackPlacedOrder(id){
+  closeModal();
+  var inp=document.getElementById('trackInput'); if(inp) inp.value='#'+id;
+  var sec=document.getElementById('track'); if(sec) sec.scrollIntoView({behavior: reduced?'auto':'smooth'});
+  if(window.trackOrder) trackOrder();
+}
+
+/* ================= ADMIN ================= */
+var adminAuthed=false;
+var PRESET_IMGS=['assets/sneaker-red.jpg','assets/sneaker-air.jpg','assets/sneaker-chunky.jpg','assets/hero-shoes.jpg','assets/formal-brown.jpg','assets/boots.jpg','assets/sandal2.jpg','assets/sandal3.jpg','assets/sandals.jpg','assets/slipper2.jpg','assets/legs-shoes.jpg','assets/sneaker-white.jpg','assets/store.jpg'];
+function openAdmin(){ document.getElementById('adminPanel').classList.add('open'); document.body.style.overflow='hidden'; if(adminAuthed){ document.getElementById('pinGate').classList.add('hidden'); document.getElementById('adminMain').classList.remove('hidden'); } }
+function closeAdmin(){ document.getElementById('adminPanel').classList.remove('open'); document.body.style.overflow=''; }
+function checkPin(){
+  if(document.getElementById('pinInput').value==='1234'){ adminAuthed=true; document.getElementById('pinGate').classList.add('hidden'); document.getElementById('adminMain').classList.remove('hidden'); document.getElementById('pinErr').textContent=''; toast('Welcome back, owner 👋'); }
+  else { document.getElementById('pinErr').textContent='Wrong PIN — try the demo PIN 1234.'; }
+}
+document.getElementById('pinInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); checkPin(); } });
+function switchTab(t){
+  document.querySelectorAll('.atab').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-atab')===t); });
+  ['products','orders','offers','reviews','settings'].forEach(function(x){ document.getElementById('tab-'+x).classList.toggle('hidden', x!==t); });
+}
+function renderAdmin(){
+  document.getElementById('pfCat').innerHTML=Object.keys(CATS).map(function(k){ return '<option value="'+k+'">'+CATS[k].label+'</option>'; }).join('');
+  document.getElementById('imgPick').innerHTML=PRESET_IMGS.map(function(src){ return '<button type="button" data-src="'+src+'" onclick="pickImg(this)"><img src="'+src+'" alt=""></button>'; }).join('');
+  document.getElementById('adminProdList').innerHTML=state.products.length? state.products.map(function(p){
+    return '<div class="arow"><img src="'+esc(p.img)+'" alt=""><div class="grow"><b>'+esc(p.name)+'</b><span>'+CATS[p.cat].label+' · '+fmt(p.price)+' · Sizes '+p.sizes.join(', ')+(p.preorder?' · ⏳ Pre-Order'+(p.preNote?' ('+esc(p.preNote)+')':''):'')+(p.soldout?' · 🚫 Sold Out':'')+'</span></div><button class="mini-btn" onclick="editProduct(\''+p.id+'\')">Edit</button><button class="mini-btn danger" onclick="delProduct(\''+p.id+'\')">Delete</button></div>';
+  }).join('') : '<p style="color:var(--muted);font-weight:600">No products yet — add your first pair above.</p>';
+  var s=state.settings;
+  document.getElementById('sfName').value=s.name; document.getElementById('sfAddr').value=s.address; document.getElementById('sfHours').value=s.hours; document.getElementById('sfFb').value=s.fb; document.getElementById('sfIg').value=s.ig;
+  if(s.delivery){ document.getElementById('sfDelCityFee').value=s.delivery.cityFee; document.getElementById('sfDelCityTime').value=s.delivery.cityTime; document.getElementById('sfDelNatFee').value=s.delivery.natFee; document.getElementById('sfDelNatTime').value=s.delivery.natTime; }
+  if(s.pay){ document.getElementById('sfJazz').value=s.pay.jazz||''; document.getElementById('sfEasy').value=s.pay.easy||''; }
+  if(window.renderOrders) renderOrders();
+  if(window.renderAdminReviews) renderAdminReviews();
+}
+function pickImg(btn){ document.querySelectorAll('#imgPick button').forEach(function(b){b.classList.remove('on');}); btn.classList.add('on'); document.getElementById('pfImg').value=btn.getAttribute('data-src'); }
+function parseColours(str){
+  if(!str||!str.trim()) return [C('Black','#111827')];
+  return str.split(',').map(function(part){ var m=part.trim().match(/^(.*?)\s*(#[0-9a-fA-F]{3,6})?$/); if(!m) return null; return C(m[1]||'Colour', m[2]||'#888888'); }).filter(Boolean);
+}
+document.getElementById('prodForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var id=document.getElementById('pfId').value;
+  var data={ name:document.getElementById('pfName').value.trim(), price:Math.max(0,Number(document.getElementById('pfPrice').value)||0), cat:document.getElementById('pfCat').value,
+    sizes:document.getElementById('pfSizes').value.split(',').map(function(s){return s.trim();}).filter(Boolean),
+    colours:parseColours(document.getElementById('pfColours').value),
+    preorder:document.getElementById('pfPre').checked, preNote:document.getElementById('pfPreNote').value.trim(), soldout:document.getElementById('pfSold').checked,
+    img:document.getElementById('pfImg').value.trim()||'assets/store.jpg' };
+  if(!data.sizes.length) data.sizes=['39','40','41','42','43','44'];
+  if(id){ var p=byId(id); Object.keys(data).forEach(function(k){ p[k]=data[k]; }); toast('Product updated — live on the site ✓'); }
+  else { data.id='p'+Date.now(); state.products.push(data); toast('Product added — live on the site ✓'); }
+  save(); clearProdForm(); renderAll();
+});
+function editProduct(id){
+  var p=byId(id); if(!p) return;
+  document.getElementById('pfId').value=p.id; document.getElementById('pfName').value=p.name; document.getElementById('pfPrice').value=p.price; document.getElementById('pfCat').value=p.cat;
+  document.getElementById('pfSizes').value=p.sizes.join(', '); document.getElementById('pfColours').value=p.colours.map(function(c){return c.name+' '+c.hex;}).join(', '); document.getElementById('pfImg').value=p.img;
+  document.getElementById('pfPre').checked=!!p.preorder; document.getElementById('pfPreNote').value=p.preNote||''; document.getElementById('pfSold').checked=!!p.soldout;
+  document.getElementById('prodFormTitle').textContent='Edit Product'; document.getElementById('pfCancel').classList.remove('hidden');
+  document.getElementById('adminPanel').scrollTo({top:0,behavior:'smooth'});
+}
+function clearProdForm(){ document.getElementById('prodForm').reset(); document.getElementById('pfId').value=''; document.getElementById('prodFormTitle').textContent='Add a Product'; document.getElementById('pfCancel').classList.add('hidden'); document.querySelectorAll('#imgPick button').forEach(function(b){b.classList.remove('on');}); }
+function delProduct(id){ state.products=state.products.filter(function(p){return p.id!==id;}); save(); renderAll(); toast('Product deleted'); }
+document.getElementById('offerForm').addEventListener('submit',function(e){ e.preventDefault(); var t=document.getElementById('ofText').value.trim(); if(!t) return; state.offers.push({id:'o'+Date.now(), text:t}); document.getElementById('ofText').value=''; save(); renderAll(); toast('Offer banner live ✓'); });
+function delOffer(id){ state.offers=state.offers.filter(function(o){return o.id!==id;}); save(); renderAll(); toast('Banner removed'); }
+document.getElementById('setForm').addEventListener('submit',function(e){ e.preventDefault(); state.settings={ name:document.getElementById('sfName').value.trim()||'Zee Shoes', address:document.getElementById('sfAddr').value.trim(), hours:document.getElementById('sfHours').value.trim(), fb:document.getElementById('sfFb').value.trim()||'https://www.facebook.com/', ig:document.getElementById('sfIg').value.trim()||'https://www.instagram.com/',
+  delivery:{ cityFee:Math.max(0,Number(document.getElementById('sfDelCityFee').value)||0), cityTime:document.getElementById('sfDelCityTime').value.trim()||'1–2 days', natFee:Math.max(0,Number(document.getElementById('sfDelNatFee').value)||0), natTime:document.getElementById('sfDelNatTime').value.trim()||'3–5 days' },
+  pay:{ jazz:document.getElementById('sfJazz').value.trim(), easy:document.getElementById('sfEasy').value.trim() } }; save(); renderAll(); toast('Settings saved ✓'); });
+function resetDemo(){ var keepOrders=state.orders, keepCart=state.cart, keepSeq=state.orderSeq; state=JSON.parse(JSON.stringify(DEFAULT_STATE)); state.orders=keepOrders||[]; state.cart=keepCart||[]; state.orderSeq=keepSeq||1000; save(); activeFilter='all'; tryCat='sports'; trySel=null; renderAll(); toast('Demo data restored'); }
+
+/* ================= MARQUEE / COUNTERS / REVEAL / INIT ================= */
+(function(){
+  var items='SPORTS SNEAKERS ✦ GENTS FORMAL ✦ SANDALS & SLIPPERS ✦ SCHOOL SHOES ✦ MANDIAN · ABBOTTABAD ✦ NEW STYLES EVERY WEEK ✦ ';
+  document.getElementById('marqueeTrack').innerHTML='<span>'+items.replace(/✦/g,'<i>✦</i>')+'</span><span>'+items.replace(/✦/g,'<i>✦</i>')+'</span>';
+})();
+function renderAll(){
+  applySettings(); renderOffers(); renderCats(); renderFilters(); renderCatalogue();
+  renderStudioTabs(); buildOrbit(); buildWheel(); buildRail(); buildLooks(); renderAdmin();
+  if(window.commerceRender) commerceRender();
+}
+var revealIO=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); revealIO.unobserve(en.target); } }); },{threshold:.05, rootMargin:'500px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ revealIO.observe(el); });
+setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); }); }, 900);
+var counted=false;
+var countIO=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting && !counted){ counted=true; document.querySelectorAll('[data-count]').forEach(function(el){ var target=Number(el.getAttribute('data-count')); if(reduced){ el.textContent=target.toLocaleString('en-US'); return; } var t0=performance.now(); (function step(t){ var k=Math.min(1,(t-t0)/1400); el.textContent=Math.round(target*(0.2+0.8*k*k)).toLocaleString('en-US'); if(k<1) requestAnimationFrame(step); })(t0); }); } }); },{threshold:.3});
+var heroStats=document.querySelector('.hero-stats'); if(heroStats) countIO.observe(heroStats);
+var whyStats=document.querySelector('.stat-grid'); if(whyStats) countIO.observe(whyStats);
+var resizeT; window.addEventListener('resize',function(){ clearTimeout(resizeT); resizeT=setTimeout(function(){ var f=document.querySelector('#wfRail .wf-ritem'); if(f) railHW=f.offsetWidth/2; positionOrbit(); positionRail(); positionWheel(true); },150); });
+['enqModal','qvModal','lookModal','sizeModal'].forEach(function(id){ document.getElementById(id).addEventListener('click',function(e){ if(e.target===this){ this.classList.remove('open'); document.getElementById('wfRail').classList.remove('faded'); } }); });
+renderAll();
+</script>
+
+<script>
+/* ================= ORDERS (ADMIN) / REVIEWS / DELIVERY INFO / TRACKING / SIZE GUIDE / SEARCH & SORT ================= */
+function renderOrders(){
+  var w=document.getElementById('adminOrderList'); if(!w) return;
+  updateOrdBadge();
+  if(!state.orders.length){ w.innerHTML='<p style="color:var(--muted);font-weight:600">No orders yet — orders placed on this site (in this browser) will appear here, newest first.</p>'; return; }
+  w.innerHTML=state.orders.map(function(o){
+    var items=o.items.map(function(it){ return esc(it.name)+' — Size '+esc(it.size)+(it.colour?' · '+esc(it.colour):'')+' ×'+it.qty+' · '+fmt(it.price*it.qty); }).join('<br>');
+    return '<div style="border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem;margin-bottom:.8rem">'
+      +'<div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap"><b style="font-family:\'Sora\'">Order #'+o.id+'</b>'
+      +(o.preorder? '<span class="pbadge pre" style="position:static;display:inline-block">PRE-ORDER'+(o.preNote?' · '+esc(o.preNote):'')+'</span>' : '')
+      +'<span style="color:var(--muted);font-weight:700;font-size:.84rem">'+new Date(o.date).toLocaleString()+'</span>'
+      +'<span style="margin-left:auto;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap"><select class="status-sel" onchange="setOrderStatus('+o.id+',this.value)" aria-label="Order status">'+['New','Confirmed','Dispatched','Delivered','Cancelled'].map(function(s){ return '<option'+(o.status===s?' selected':'')+'>'+s+'</option>'; }).join('')+'</select><button class="mini-btn danger" onclick="delOrder('+o.id+')">Delete</button></span></div>'
+      +'<div style="font-weight:700;margin-top:.5rem">'+esc(o.customer)+' · '+esc(o.phone)+'</div>'
+      +'<div style="color:var(--muted);font-weight:600;font-size:.88rem">'+esc(o.address)+'</div>'
+      +'<div style="font-weight:600;margin-top:.4rem;line-height:1.55">'+items+'</div>'
+      +'<div style="color:var(--muted);font-weight:600;font-size:.88rem;margin-top:.3rem">Qty '+o.qty+' · Delivery '+fmt(o.deliveryFee)+' ('+(o.area==='nat'?'Nationwide':'Abbottabad city')+') · '+esc(o.payment)+(o.note?' · Note: '+esc(o.note):'')+'</div>'
+      +'<div style="font-family:\'Sora\';font-weight:800;margin-top:.3rem">Total: '+fmt(o.total)+'</div></div>';
+  }).join('');
+}
+function updateOrdBadge(){ var b=document.getElementById('ordBadge'); if(!b) return; var n=state.orders.filter(function(o){return o.status==='New';}).length; b.textContent=n; b.style.display= n? 'inline-grid':'none'; }
+function setOrderStatus(id,st){ var o=state.orders.find(function(x){return x.id===id;}); if(!o) return; o.status=st; save(); renderOrders(); toast('Order #'+id+' → '+st); }
+function delOrder(id){ state.orders=state.orders.filter(function(x){return x.id!==id;}); save(); renderOrders(); toast('Order deleted'); }
+
+function starStr(n){ var s=''; for(var i=0;i<5;i++) s+= i<n? '★':'☆'; return s; }
+function renderReviews(){
+  var g=document.getElementById('revGrid'); if(!g) return;
+  g.innerHTML= state.reviews.length? state.reviews.map(function(r){
+    return '<div class="rev-card"><div class="rev-stars" aria-label="'+r.stars+' out of 5 stars">'+starStr(r.stars)+'</div><p style="color:var(--ink2);line-height:1.6;font-weight:600;margin:.5rem 0 .7rem">&ldquo;'+esc(r.text)+'&rdquo;</p><b style="font-family:\'Sora\';font-size:.9rem">'+esc(r.name)+'</b></div>';
+  }).join('') : '<p style="color:var(--muted);font-weight:700">No reviews yet.</p>';
+  renderAdminReviews();
+}
+function renderAdminReviews(){
+  var w=document.getElementById('adminRevList'); if(!w) return;
+  w.innerHTML= state.reviews.length? state.reviews.map(function(r){
+    return '<div class="arow"><div class="grow"><b>'+esc(r.name)+' · '+starStr(r.stars)+'</b><span>'+esc(r.text)+'</span></div><button class="mini-btn" onclick="editReview(\''+r.id+'\')">Edit</button><button class="mini-btn danger" onclick="delReview(\''+r.id+'\')">Delete</button></div>';
+  }).join('') : '<p style="color:var(--muted);font-weight:600">No reviews yet.</p>';
+}
+document.getElementById('revForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var id=document.getElementById('rfId').value;
+  var data={ name:document.getElementById('rfName').value.trim(), stars:Number(document.getElementById('rfStars').value)||5, text:document.getElementById('rfText').value.trim() };
+  if(!data.name||!data.text) return;
+  if(id){ var r=state.reviews.find(function(x){return x.id===id;}); if(r){ r.name=data.name; r.stars=data.stars; r.text=data.text; } }
+  else { data.id='r'+Date.now(); state.reviews.push(data); }
+  save(); clearRevForm(); renderReviews(); toast('Review saved ✓');
+});
+function editReview(id){ var r=state.reviews.find(function(x){return x.id===id;}); if(!r) return; document.getElementById('rfId').value=r.id; document.getElementById('rfName').value=r.name; document.getElementById('rfStars').value=String(r.stars); document.getElementById('rfText').value=r.text; document.getElementById('revFormTitle').textContent='Edit Review'; document.getElementById('rfCancel').classList.remove('hidden'); document.getElementById('adminPanel').scrollTo({top:0,behavior:'smooth'}); }
+function clearRevForm(){ document.getElementById('revForm').reset(); document.getElementById('rfId').value=''; document.getElementById('revFormTitle').textContent='Add a Review'; document.getElementById('rfCancel').classList.add('hidden'); }
+function delReview(id){ state.reviews=state.reviews.filter(function(x){return x.id!==id;}); save(); renderReviews(); toast('Review deleted'); }
+
+function renderDeliveryInfo(){
+  var d=state.settings.delivery, w=document.getElementById('delInfo'); if(!w) return;
+  w.innerHTML='<ul><li><b>Abbottabad city:</b> '+fmt(d.cityFee)+' · arrives in '+esc(d.cityTime)+'</li><li><b>Nationwide:</b> '+fmt(d.natFee)+' · arrives in '+esc(d.natTime)+'</li></ul><p style="font-size:.86rem;margin:.5rem 0 0">Demo defaults — the owner can change the charges and times in the Admin Panel → Settings.</p>';
+  var ps=document.getElementById('payStrip');
+  if(ps) ps.innerHTML=['Cash on Delivery','JazzCash','Easypaisa'].map(function(m){ return '<span class="chip">💳 '+m+'</span>'; }).join('');
+}
+
+function trackOrder(){
+  var inp=document.getElementById('trackInput'), res=document.getElementById('trackResult'); if(!inp||!res) return;
+  var q=inp.value.trim(); if(!q){ res.innerHTML=''; return; }
+  var digits=q.replace(/\D/g,''), ord=null;
+  if(digits) ord=state.orders.find(function(o){ return o.id===Number(digits); });
+  if(!ord && digits) ord=state.orders.find(function(o){ return o.phone.replace(/\D/g,'')===digits; });
+  if(!ord){ res.innerHTML='<div class="info-card" style="margin-top:16px"><b>No order found</b><p style="margin:.3rem 0 0">Check the Order ID from your confirmation screen, or use the mobile number you ordered with.</p></div>'; return; }
+  var steps=['Received','Confirmed','Dispatched','Delivered'];
+  var idx= ord.status==='Confirmed'? 1 : ord.status==='Dispatched'? 2 : ord.status==='Delivered'? 3 : 0;
+  var tl='';
+  if(ord.status==='Cancelled'){ tl='<p style="background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:12px;padding:.7rem 1rem;font-weight:800;margin:1rem 0 .4rem">This order was cancelled.</p>'; }
+  else tl='<div class="tl">'+steps.map(function(s,i){ return '<div class="tl-step'+(i<=idx?' done':'')+'">'+s+'<small>'+(i<idx?'Done':(i===idx?'Current step':'Pending'))+'</small></div>'; }).join('')+'</div>';
+  res.innerHTML='<div class="info-card" style="margin-top:16px"><div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap"><b style="font-family:\'Sora\';font-size:1.1rem">Order #'+ord.id+'</b>'
+    +(ord.preorder? '<span class="pbadge pre" style="position:static;display:inline-block">PRE-ORDER</span>' : '')
+    +'<span style="color:var(--muted);font-weight:700">'+new Date(ord.date).toLocaleString()+'</span><span class="chip" style="margin-left:auto">Status: '+ord.status+'</span></div>'
+    +tl
+    +'<div style="font-weight:600;line-height:1.6">'+ord.items.map(function(it){ return esc(it.name)+' — Size '+esc(it.size)+(it.colour?' · '+esc(it.colour):'')+' ×'+it.qty; }).join('<br>')+'</div>'
+    +'<div style="font-weight:800;font-family:\'Sora\';margin-top:.4rem">Total: '+fmt(ord.total)+' · '+esc(ord.payment)+'</div></div>';
+}
+document.getElementById('trackInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); trackOrder(); } });
+
+function openSizeGuide(){ document.getElementById('sizeModal').classList.add('open'); }
+function closeSizeGuide(){ document.getElementById('sizeModal').classList.remove('open'); }
+
+document.getElementById('searchInput').addEventListener('input',function(){ searchQ=this.value; renderCatalogue(); });
+document.getElementById('sortSel').addEventListener('change',function(){ sortMode=this.value; renderCatalogue(); });
+
+function commerceRender(){ renderReviews(); renderDeliveryInfo(); renderOrders(); updateCartBadge(); renderCart(); }
+commerceRender();
+</script>
+</body>
+</html>
