@@ -317,6 +317,21 @@ button:disabled{opacity:.45;cursor:not-allowed}
   .reveal{opacity:1;transform:none}
 }
 </style>
+<style>
+/* TO-FIX2 2026-11-24: mobile try-on restack (shoes) */
+
+@media(max-width:640px){
+  /* Mobile studio stacks: model, worn box, then the orbit in its own band —
+     cards no longer slice behind the model or off the stage edges. */
+  .stage{height:auto}
+  .stage-fade{display:flex;flex-direction:column;align-items:center}
+  .model-wrap{position:relative;left:auto;top:auto;transform:none;order:1}
+  .worn{position:relative;left:auto;bottom:auto;transform:none;order:2;margin-top:8px}
+  .orbit{position:relative;inset:auto;order:3;width:100%;height:230px;margin-top:6px}
+  .floor{display:none}
+}
+
+</style>
 </head>
 <body>
 <nav>
@@ -1071,7 +1086,7 @@ function buildOrbit(){
 function positionOrbit(){
   var stage=document.getElementById('stage'); if(!stage||!orbitCards.length) return;
   var sw=stage.clientWidth;
-  var rx= sw<=560 ? Math.max(96, sw/2-56) : Math.max(120, Math.min(sw/2-86, 430));
+  var rx= sw<=560 ? Math.min(Math.max(96, sw/2-56), Math.max(40, sw/2-74)) : Math.max(120, Math.min(sw/2-86, 430)); /* keep orbiting cards inside the stage on narrow screens */
   orbitCards.forEach(function(card,i){
     var a=orbitAngle + i*(Math.PI*2/orbitCards.length);
     var x=Math.sin(a)*rx, z=Math.cos(a);
